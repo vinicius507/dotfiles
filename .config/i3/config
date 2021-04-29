@@ -1,0 +1,118 @@
+# VARIABLES
+
+set $mod Mod1
+set $ws1 1
+set $ws2 2
+set $ws3 3
+set $ws4 4
+
+# MISC
+
+floating_modifier $mod 
+default_border pixel 5
+default_floating_border pixel 5
+font FiraCode Nerd Font Mono
+
+# STARTUP
+
+exec --no-startup-id nitrogen --restore; sleep 1; picom -b
+# exec --no-startup-id latte-dock &
+
+# GAPS
+
+gaps inner 20
+gaps outer 30
+gaps bottom -10
+
+# KEYBINDINGS
+
+bindsym $mod+Return exec --no-startup-id kitty
+bindsym $mod --release exec --no-startup-id qdbus org.kde.lattedock /Latte activateLauncherMenu
+bindsym $mod+space exec --no-startup-id qdbus org.kde.klauncher5 /KLauncher exec_blind "dbus-send" "(" "--type=method_call" "--dest=org.kde.krunner" "/App" "org.kde.krunner.App.toggleDisplay" ")"
+bindsym $mod+Shift+q kill
+
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right 
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down 
+bindsym $mod+Shift+k move up 
+bindsym $mod+Shift+l move right
+
+bindsym $mod+Shift+v split h
+bindsym $mod+v split v
+bindsym $mod+q split toggle
+
+bindsym $mod+1 workspace $ws1
+bindsym $mod+2 workspace $ws2
+bindsym $mod+3 workspace $ws3
+bindsym $mod+4 workspace $ws4
+
+bindsym $mod+Ctrl+1 move container to workspace $ws1
+bindsym $mod+Ctrl+2 move container to workspace $ws2
+bindsym $mod+Ctrl+3 move container to workspace $ws3
+bindsym $mod+Ctrl+4 move container to workspace $ws4
+
+
+bindsym $mod+Shift+1 move container to workspace $ws1; workspace $ws1
+bindsym $mod+Shift+2 move container to workspace $ws2; workspace $ws2
+bindsym $mod+Shift+3 move container to workspace $ws3; workspace $ws3
+bindsym $mod+Shift+4 move container to workspace $ws4; workspace $ws4
+
+bindsym $mod+Shift+r reload; restart
+bindsym $mod+Shift+e exec --no-startup-id qdbus org.kde.ksmserver /KSMServer org.kde.KSMServerInterface.logout -1 -1 -1
+
+bindsym $mod+r mode resize
+bindsym $mod+Shift+g mode gaps
+
+# PLASMA COMPATIBILITY
+
+for_window [title="Desktop — Plasma"] kill; floating enable; border none
+for_window [class="plasmashell"] floating enable;
+for_window [class="Plasma"] floating enable; border none
+for_window [title="plasma-desktop"] floating enable; border none
+for_window [title="win7"] floating enable; border none
+for_window [class="krunner"] floating enable; border none
+for_window [class="Kmix"] floating enable; border none
+for_window [class="Klipper"] floating enable; border none
+for_window [class="Plasmoidviewer"] floating enable; border none
+for_window [class="lattedock"] floating enable; border none
+for_window [class="(?i)*nextcloud*"] floating disable
+for_window [class="systemsettings"] floating enable
+for_window [class="plasmashell" window_type="notification"] floating enable, border none, move right 700px, move down 450px
+no_focus [class="plasmashell" window_type="notification"]
+
+# MODES
+
+mode "resize" {
+	bindsym h resize shrink width 5 px or 5 ppt
+	bindsym j resize grow height 5 px or 5 ppt
+	bindsym k resize shrink height 5 px or 5 ppt
+	bindsym l resize grow width 5 px or 5 ppt
+
+	bindsym Return mode "default"
+	bindsym Escape mode "default"
+}
+
+mode gaps {
+	bindsym o mode outer
+	bindsym i mode inner
+	bindsym r gaps outer current set 0; gaps inner current set 40; gaps top current set 30
+	bindsym Return mode "default"
+	bindsym Escape mode "default"
+}
+
+mode outer {
+	bindcode 86 gaps outer current plus 5
+	bindcode 82 gaps outer current minus 5
+	bindsym Return mode "default"
+	bindsym Escape mode "default"
+}
+
+mode inner {
+	bindcode 86 gaps inner current plus 5
+	bindcode 82 gaps inner current minus 5
+	bindsym Return mode "default"
+	bindsym Escape mode "default"
+}
