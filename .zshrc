@@ -6,6 +6,8 @@ export PATH="$HOME/.config/bin:$PATH"
 export MANPAGER="nvim +Man!"
 export MANWIDTH=999
 export LIBVIRT_DEFAULT_URI="qemu:///system"
+export USER="vgoncalv"
+export MAIL="vgoncalv@student.42sp.org.br"
 
 ZSH_THEME=""
 fpath+="$HOME/.zsh/pure"
@@ -25,7 +27,6 @@ prompt pure
 alias dotfiles="/usr/bin/git --git-dir=$HOME/.dotfiles.git/ --work-tree=$HOME"
 alias vim="nvim"
 alias vcfg="nvim $HOME/.config/nvim/init.vim"
-alias norminette="~/.norminette/norminette.rb"
 alias tldr="man -M ~/tldr"
 
 #asdf configs

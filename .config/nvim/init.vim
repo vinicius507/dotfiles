@@ -13,11 +13,11 @@ let g:material_theme_style = 'darker'
 colorscheme material
 
 " Set Preferences and Remaps
-if (has('termguicolors'))
+if has('termguicolors')
 	set termguicolors
 endif
 
-if (has('syntax'))
+if has('syntax')
 	syntax on
 endif
 
@@ -29,12 +29,21 @@ set cursorline
 set noshowmode
 set hidden
 
-nmap <silent> <c-k> :wincmd k<CR>
-nmap <silent> <c-j> :wincmd j<CR>
-nmap <silent> <c-h> :wincmd h<CR>
-nmap <silent> <c-l> :wincmd l<CR>
+nnoremap <silent> <c-k> :wincmd k<CR>
+nnoremap <silent> <c-j> :wincmd j<CR>
+nnoremap <silent> <c-h> :wincmd h<CR>
+nnoremap <silent> <c-l> :wincmd l<CR>
+nnoremap <silent> <c-t> :bot 15sp \| term<enter>A
+tnoremap <Esc> <C-\><C-n>
 
-if !exists('g:vscode') 
+" 42 configuration
+if !empty((globpath(&rtp, '/autoload/stdheader.vim')))
+	command! Stdheader call stdheader#stdheader()
+	map <F2> :Stdheader<CR>
+	autocmd BufWritePre * call stdheader#update()
+endif
+
+if !exists('g:vscode')
 	" Statusline
 	set laststatus=2
 	set statusline=
