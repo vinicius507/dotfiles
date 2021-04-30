@@ -14,6 +14,7 @@ font FiraCode Nerd Font Mono
 
 # STARTUP
 
+exec --no-startup-id wmctrl -c Plasma
 exec --no-startup-id nitrogen --restore; sleep 1; picom -b
 exec_always --no-startup-id $HOME/.config/bin/i3-auto-layout
 
@@ -87,6 +88,11 @@ for_window [class="(?i)*nextcloud*"] floating disable
 for_window [class="systemsettings"] floating enable
 for_window [class="plasmashell" window_type="notification"] floating enable, border none
 no_focus [window_type="notification"]
+
+# PLASMA POSITIONING
+
+for_window [class="krunner"] move position 694px 0px
+for_window [class="plasmashell" window_type="notification"] move position 819px 515px
 
 # STEAM
 
