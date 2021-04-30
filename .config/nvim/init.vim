@@ -43,6 +43,12 @@ if !empty((globpath(&rtp, '/autoload/stdheader.vim')))
 	autocmd BufWritePre * call stdheader#update()
 endif
 
+
+if executable('norminette')
+	let g:norminette_exec = '/home/vinicius/.asdf/shims/norminette'
+	map <F3> :Norminette<CR>
+endif
+
 if !exists('g:vscode')
 	" Statusline
 	set laststatus=2
