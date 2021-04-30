@@ -31,4 +31,3 @@ alias tldr="man -M ~/tldr"
 
 #asdf configs
 . $HOME/.asdf/asdf.sh
-

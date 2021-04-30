@@ -17,6 +17,7 @@ font FiraCode Nerd Font Mono
 exec --no-startup-id wmctrl -c Plasma
 exec --no-startup-id nitrogen --restore; sleep 1; picom -b
 exec_always --no-startup-id $HOME/.config/bin/i3-auto-layout
+exec --no-startup-id kitty --title "scratchpad"
 
 # GAPS
 
@@ -81,7 +82,6 @@ for_window [class="Spotify"][floating] move scratchpad
 for_window [class="kitty" title="scratchpad"] move scratchpad
 bindsym $mod+s [class="Spotify"] scratchpad show
 bindsym $mod+z [class="kitty" title="scratchpad"] scratchpad show
-bindsym $mod+Shift+z exec --no-startup-id kitty --title "scratchpad"
 
 # PLASMA COMPATIBILITY
 
