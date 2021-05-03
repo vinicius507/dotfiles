@@ -8,18 +8,18 @@ if !exists('g:vscode')
 	Plug 'neovim/nvim-lspconfig'
 	Plug 'kabouzeid/nvim-lspinstall'
 	Plug 'hrsh7th/nvim-compe'
-	Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'} 
+	Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 	Plug 'kaicataldo/material.vim', { 'branch': 'main' }
 	Plug 'vim-airline/vim-airline'
 	Plug 'vim-airline/vim-airline-themes'
 
 	call plug#end()
 
-	" Luafiles
+	" Imports
 	luafile ~/.config/nvim/plug-config/lsp.lua
 	luafile ~/.config/nvim/plug-config/treesitter.lua
 	luafile ~/.config/nvim/plug-config/compe.lua
-
+	source ~/.config/nvim/themes/airline.vim
 
 	let g:material_theme_style = 'darker'
 	colorscheme material
@@ -80,7 +80,4 @@ if !exists('g:vscode')
 	inoremap <silent><expr> <C-e>     compe#close('<C-e>')
 	inoremap <silent><expr> <C-f>     compe#scroll({ 'delta': +4 })
 	inoremap <silent><expr> <C-d>     compe#scroll({ 'delta': -4 })
-
-	" Airline configuration
-	
 endif
