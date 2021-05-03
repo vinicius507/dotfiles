@@ -7,33 +7,27 @@ if !exists('g:vscode')
 	Plug 'tpope/vim-commentary'
 	Plug 'neovim/nvim-lspconfig'
 	Plug 'kabouzeid/nvim-lspinstall'
+	Plug 'folke/lsp-colors.nvim'
 	Plug 'hrsh7th/nvim-compe'
 	Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-	Plug 'kaicataldo/material.vim', { 'branch': 'main' }
-	Plug 'vim-airline/vim-airline'
-	Plug 'vim-airline/vim-airline-themes'
-
+	Plug 'marko-cerovac/material.nvim'
+	Plug 'hoob3rt/lualine.nvim'
+	Plug 'kyazdani42/nvim-web-devicons'
 	call plug#end()
 
 	" Imports
 	luafile ~/.config/nvim/plug-config/lsp.lua
 	luafile ~/.config/nvim/plug-config/treesitter.lua
 	luafile ~/.config/nvim/plug-config/compe.lua
-	source ~/.config/nvim/themes/airline.vim
+	luafile ~/.config/nvim/themes/config.lua
+	luafile ~/.config/nvim/themes/lualine.lua
 
-	let g:material_theme_style = 'darker'
 	colorscheme material
+	let g:material_flat_ui=1
+	let g:material_italic_comments=1
+	let g:material_italic_keywords=1
+	let g:material_italic_functions=1
 
-	" Set Preferences and Remaps
-	if has('termguicolors')
-		set termguicolors
-	endif
-
-	if has('syntax')
-		syntax on
-	endif
-
-	hi Normal guibg=0
 	set number
 	set shiftwidth=4
 	set tabstop=4
