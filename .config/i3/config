@@ -76,6 +76,7 @@ for_window [class="Spotify"] floating enable, resize set 1280 720, move position
 for_window [class="kitty" title="scratchpad"] floating enable, resize set 1024 576, move position 448px 50px
 for_window [class="firefox" title="Picture-in-Picture"] sticky enable
 for_window [class="Virt-manager"] floating enable
+for_window [class="dolphin"] floating enable
 
 # SCRATCHPADS
 
