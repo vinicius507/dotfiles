@@ -13,21 +13,28 @@ if !exists('g:vscode')
 	Plug 'marko-cerovac/material.nvim'
 	Plug 'hoob3rt/lualine.nvim'
 	Plug 'kyazdani42/nvim-web-devicons'
+	Plug 'nvim-lua/popup.nvim'
+	Plug 'nvim-lua/plenary.nvim'
+	Plug 'nvim-telescope/telescope.nvim'
+	Plug 'kyazdani42/nvim-web-devicons'
+	Plug 'folke/lsp-trouble.nvim'
+	Plug 'akinsho/nvim-bufferline.lua'
 	call plug#end()
+
+	" Leaderkey
+	let mapleader = "'"
 
 	" Imports
 	luafile ~/.config/nvim/plug-config/lsp.lua
 	luafile ~/.config/nvim/plug-config/treesitter.lua
 	luafile ~/.config/nvim/plug-config/compe.lua
+	luafile ~/.config/nvim/plug-config/lsp-trouble.lua
+	luafile ~/.config/nvim/plug-config/bufferline.lua
 	luafile ~/.config/nvim/themes/config.lua
 	luafile ~/.config/nvim/themes/lualine.lua
 
+	" Config
 	colorscheme material
-	let g:material_flat_ui=1
-	let g:material_italic_comments=1
-	let g:material_italic_keywords=1
-	let g:material_italic_functions=1
-
 	set number
 	set shiftwidth=4
 	set tabstop=4
@@ -35,13 +42,22 @@ if !exists('g:vscode')
 	set noshowmode
 	set hidden
 
-	" Random bindiings
+	if (has('termguicolors'))
+		set termguicolors
+	endif
+
+	if (has('syntax'))
+		syntax on
+	endif
+
+	" Bindiings
 	nnoremap <silent> <c-k> :wincmd k<CR>
 	nnoremap <silent> <c-j> :wincmd j<CR>
 	nnoremap <silent> <c-h> :wincmd h<CR>
 	nnoremap <silent> <c-l> :wincmd l<CR>
 	nnoremap <silent> <c-t> :bot 15sp \| term<enter>A
 	tnoremap <Esc> <C-\><C-n>
+	nnoremap <silent> <leader>q <cmd>bdelete!<CR>
 
 	" 42 configuration
 	if !empty((globpath(&rtp, '/autoload/stdheader.vim')))
@@ -58,7 +74,7 @@ if !exists('g:vscode')
 	" LSP configuration
 	nnoremap <silent> gd <cmd>lua vim.lsp.buf.definition()<CR>
 	nnoremap <silent> gD <cmd>lua vim.lsp.buf.declaration()<CR>
-	nnoremap <silent> gr <cmd>lua vim.lsp.buf.references()<CR>
+	" nnoremap <silent> gr <cmd>lua vim.lsp.buf.references()<CR>
 	nnoremap <silent> gi <cmd>lua vim.lsp.buf.implementation()<CR>
 	nnoremap <silent> K <cmd>lua vim.lsp.buf.hover()<CR>
 	nnoremap <silent> <C-i> <cmd>lua vim.lsp.buf.signature_help()<CR>
@@ -74,4 +90,10 @@ if !exists('g:vscode')
 	inoremap <silent><expr> <C-e>     compe#close('<C-e>')
 	inoremap <silent><expr> <C-f>     compe#scroll({ 'delta': +4 })
 	inoremap <silent><expr> <C-d>     compe#scroll({ 'delta': -4 })
+
+	" Telescope configuration
+	nnoremap <leader>ff <cmd>lua require('telescope.builtin').find_files()<CR>
+	nnoremap <leader>fg <cmd>lua require('telescope.builtin').live_grep()<CR>
+	nnoremap <leader>fb <cmd>lua require('telescope.builtin').buffers()<CR>
+	nnoremap <leader>fh <cmd>lua require('telescope.builtin').help_tags()<CR>
 endif
