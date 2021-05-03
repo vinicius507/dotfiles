@@ -6,9 +6,12 @@ if !exists('g:vscode')
 	Plug 'tpope/vim-surround'
 	Plug 'tpope/vim-commentary'
 	Plug 'neovim/nvim-lspconfig'
+	Plug 'kabouzeid/nvim-lspinstall'
 	Plug 'hrsh7th/nvim-compe'
 	Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'} 
 	Plug 'kaicataldo/material.vim', { 'branch': 'main' }
+	Plug 'vim-airline/vim-airline'
+	Plug 'vim-airline/vim-airline-themes'
 
 	call plug#end()
 
@@ -77,21 +80,4 @@ if !exists('g:vscode')
 	inoremap <silent><expr> <C-e>     compe#close('<C-e>')
 	inoremap <silent><expr> <C-f>     compe#scroll({ 'delta': +4 })
 	inoremap <silent><expr> <C-d>     compe#scroll({ 'delta': -4 })
-
-	" Statusline
-	set laststatus=2
-	set statusline=
-	set statusline+=%5{headers[mode()]}
-	set statusline+=%1*
-	set statusline+=%4m
-	set statusline+=%= " Right side
-	set statusline+=%f
-	set statusline+=%6y
-
-	let g:headers = {
-				\ 'n': 'N  ',           'i': 'I  ',               'R': 'R  ',
-				\ 'v': 'V  ',           'V': 'V  ',          "\<c-v>": 'V  ',
-				\ 's': 'S  ',           'S': 'S  ',          "\<c-s>": 'S  ',
-				\ 'c': 'C  ',           'r': 'P  ',               't': 'T  ',
-				\ '!': '!'}
 endif
