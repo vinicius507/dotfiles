@@ -3,6 +3,7 @@ export EDITOR="nvim"
 export SPICETIFY_INSTALL="$HOME/.config/spicetify"
 export PATH="$SPICETIFY_INSTALL:$PATH"
 export PATH="$HOME/.config/bin:$PATH"
+export PATH="$HOME/.local/share/gem/ruby/3.0.0/bin:$PATH"
 export MANPAGER="nvim +Man!"
 export MANWIDTH=999
 export LIBVIRT_DEFAULT_URI="qemu:///system"
@@ -27,7 +28,7 @@ prompt pure
 alias dotfiles="/usr/bin/git --git-dir=$HOME/.dotfiles.git/ --work-tree=$HOME"
 alias vim="nvim"
 alias vcfg="nvim $HOME/.config/nvim/init.vim"
-alias tldr="man -M ~/tldr"
+alias tldr="man -M ~/.tldr"
 
 #asdf configs
 . $HOME/.asdf/asdf.sh
