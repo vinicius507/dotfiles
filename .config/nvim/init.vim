@@ -16,9 +16,9 @@ if !exists('g:vscode')
 	call plug#end()
 
 	" Luafiles
-	luafile ~/.config/nvim/lsp.lua
-	luafile ~/.config/nvim/treesitter.lua
-	luafile ~/.config/nvim/compe.lua
+	luafile ~/.config/nvim/plug-config/lsp.lua
+	luafile ~/.config/nvim/plug-config/treesitter.lua
+	luafile ~/.config/nvim/plug-config/compe.lua
 
 
 	let g:material_theme_style = 'darker'
@@ -80,4 +80,7 @@ if !exists('g:vscode')
 	inoremap <silent><expr> <C-e>     compe#close('<C-e>')
 	inoremap <silent><expr> <C-f>     compe#scroll({ 'delta': +4 })
 	inoremap <silent><expr> <C-d>     compe#scroll({ 'delta': -4 })
+
+	" Airline configuration
+	
 endif
