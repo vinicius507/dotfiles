@@ -19,6 +19,7 @@ if !exists('g:vscode')
 	Plug 'kyazdani42/nvim-web-devicons'
 	Plug 'folke/lsp-trouble.nvim'
 	Plug 'akinsho/nvim-bufferline.lua'
+	Plug 'nvim-telescope/telescope-fzy-native.nvim'
 	call plug#end()
 
 	" Leaderkey
