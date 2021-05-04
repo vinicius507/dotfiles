@@ -1,0 +1,53 @@
+window:
+    padding:
+        x: 32
+        y: 32
+        dynamic_padding: true
+
+font:
+    size: 10
+    use_thin_strokes: true
+    normal:
+        family: FiraCode Nerd Font Mono
+        style: Regular
+
+    bold:
+        family: FiraCode Nerd Font Mono
+        style: Bold
+
+    italic:
+        family: Cousine for Powerline
+        style: Italic
+
+    bold_italic:
+        family: Cousine Italic for Powerline
+        style: Bold Italic
+
+colors:
+    primary:
+        background: '#0b0b0b'
+        foreground: '#cccccc'
+
+    cursor:
+        cursor: '#cccccc'
+        text: '#0b0b0b'
+
+    normal:
+        black:   '#0b0b0b'
+        red:     '#dc2e4d'
+        green:   '#3c8dab'
+        yellow:  '#1ba6cc'
+        blue:    '#1285a5'
+        magenta: '#3cbede'
+        cyan:    '#4ae0e0'
+        white:   '#ade6e6'
+
+    bright:
+        black:   '#222222'
+        red:     '#dc2e4d'
+        green:   '#3c8dab'
+        yellow:  '#1ba6cc'
+        blue:    '#1285a5'
+        magenta: '#3cbede'
+        cyan:    '#4ae0e0'
+        white:   '#ade6e6'

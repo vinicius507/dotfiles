@@ -29,6 +29,8 @@ require'bufferline'.setup{
 		separator_style =  "thick",
 		enforce_regular_tabs = true,
 		always_show_bufferline = true,
-		sort_by = 'relative_directory'
+		sort_by = function(buffer_a, buffer_b)
+			return (buffer_a.id < buffer_b.id)
+		end
 	}
 }

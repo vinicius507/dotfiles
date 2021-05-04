@@ -2,7 +2,7 @@ if !exists('g:vscode')
 	" Plugins
 	call plug#begin()
 
-	Plug 'airblade/vim-gitgutter'
+	" Plug 'airblade/vim-gitgutter'
 	Plug 'tpope/vim-surround'
 	Plug 'tpope/vim-commentary'
 	Plug 'neovim/nvim-lspconfig'
@@ -56,7 +56,7 @@ if !exists('g:vscode')
 	nnoremap <silent> <c-j> :wincmd j<CR>
 	nnoremap <silent> <c-h> :wincmd h<CR>
 	nnoremap <silent> <c-l> :wincmd l<CR>
-	nnoremap <silent> <c-t> :bot 15sp \| term<enter>A
+	nnoremap <silent> <leader>tt :bot 15sp \| term<enter>A
 	tnoremap <Esc> <C-\><C-n>
 	nnoremap <silent> <leader>q <cmd>bdelete!<CR>
 
