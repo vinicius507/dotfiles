@@ -2,7 +2,6 @@ if !exists('g:vscode')
 	" Plugins
 	call plug#begin()
 
-	" Plug 'airblade/vim-gitgutter'
 	Plug 'tpope/vim-surround'
 	Plug 'tpope/vim-commentary'
 	Plug 'neovim/nvim-lspconfig'
@@ -20,6 +19,7 @@ if !exists('g:vscode')
 	Plug 'folke/lsp-trouble.nvim'
 	Plug 'akinsho/nvim-bufferline.lua'
 	Plug 'nvim-telescope/telescope-fzy-native.nvim'
+	Plug 'liuchengxu/vim-which-key'
 	call plug#end()
 
 	" Leaderkey
@@ -33,6 +33,7 @@ if !exists('g:vscode')
 	luafile ~/.config/nvim/plug-config/bufferline.lua
 	luafile ~/.config/nvim/themes/config.lua
 	luafile ~/.config/nvim/themes/lualine.lua
+	source ~/.config/nvim/plug-config/which_key.vim
 
 	" Config
 	colorscheme material
@@ -56,7 +57,7 @@ if !exists('g:vscode')
 	nnoremap <silent> <c-j> :wincmd j<CR>
 	nnoremap <silent> <c-h> :wincmd h<CR>
 	nnoremap <silent> <c-l> :wincmd l<CR>
-	nnoremap <silent> <leader>tt :bot 15sp \| term<enter>A
+	nnoremap <silent> <leader>t :bot 15sp \| term<enter>A
 	tnoremap <Esc> <C-\><C-n>
 	nnoremap <silent> <leader>q <cmd>bdelete!<CR>
 
@@ -75,7 +76,7 @@ if !exists('g:vscode')
 	" LSP configuration
 	nnoremap <silent> gd <cmd>lua vim.lsp.buf.definition()<CR>
 	nnoremap <silent> gD <cmd>lua vim.lsp.buf.declaration()<CR>
-	" nnoremap <silent> gr <cmd>lua vim.lsp.buf.references()<CR>
+	nnoremap <silent> gR <cmd>lua vim.lsp.buf.references()<CR>
 	nnoremap <silent> gi <cmd>lua vim.lsp.buf.implementation()<CR>
 	nnoremap <silent> K <cmd>lua vim.lsp.buf.hover()<CR>
 	nnoremap <silent> <C-i> <cmd>lua vim.lsp.buf.signature_help()<CR>

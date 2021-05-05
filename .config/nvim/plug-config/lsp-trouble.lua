@@ -15,6 +15,6 @@ vim.api.nvim_set_keymap("n", "<leader>xl", "<cmd>LspTroubleToggle loclist<cr>",
 vim.api.nvim_set_keymap("n", "<leader>xq", "<cmd>LspTroubleToggle quickfix<cr>",
   {silent = true, noremap = true}
 )
-vim.api.nvim_set_keymap("n", "gR", "<cmd>LspTrouble lsp_references<cr>",
+vim.api.nvim_set_keymap("n", "gr", "<cmd>LspTrouble lsp_references<cr>",
   {silent = true, noremap = true}
 )
