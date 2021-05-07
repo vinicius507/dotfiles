@@ -2,24 +2,30 @@ if !exists('g:vscode')
 	" Plugins
 	call plug#begin()
 
+	" t-pope
 	Plug 'tpope/vim-surround'
 	Plug 'tpope/vim-commentary'
+	" LSP
 	Plug 'neovim/nvim-lspconfig'
 	Plug 'kabouzeid/nvim-lspinstall'
 	Plug 'folke/lsp-colors.nvim'
+	Plug 'folke/lsp-trouble.nvim'
+	" Compe
 	Plug 'hrsh7th/nvim-compe'
+	" Treesitter
 	Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-	Plug 'marko-cerovac/material.nvim'
-	Plug 'hoob3rt/lualine.nvim'
-	Plug 'kyazdani42/nvim-web-devicons'
+	" Telescope
 	Plug 'nvim-lua/popup.nvim'
 	Plug 'nvim-lua/plenary.nvim'
 	Plug 'nvim-telescope/telescope.nvim'
-	Plug 'kyazdani42/nvim-web-devicons'
-	Plug 'folke/lsp-trouble.nvim'
-	Plug 'akinsho/nvim-bufferline.lua'
 	Plug 'nvim-telescope/telescope-fzy-native.nvim'
+	" Appearance
+	Plug 'marko-cerovac/material.nvim'
+	Plug 'hoob3rt/lualine.nvim'
+	Plug 'akinsho/nvim-bufferline.lua'
+	Plug 'kyazdani42/nvim-web-devicons'
 	Plug 'liuchengxu/vim-which-key'
+
 	call plug#end()
 
 	" Leaderkey

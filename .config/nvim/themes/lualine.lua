@@ -10,8 +10,8 @@ require('lualine').setup{
 		lualine_a = { {'mode', upper = true} },
 		lualine_b = {
 			{
-				'branch',
-				icon = ''
+				'filename',
+				file_status = false,
 			},
 			{
 				'diagnostics',
@@ -20,19 +20,17 @@ require('lualine').setup{
 				symbols = {error = ' ', warn = ' ', info= ' '},
 			},
 		},
-		lualine_c = { 
-			{
-				'filename',
-				file_status = true,
-				symbols = {
-					modified = ' MO',
-					readonly = ' RO',
-				}
-			},
+		lualine_c = {
 		},
-		lualine_x = { 'encoding', 'fileformat', 'filetype' },
-		lualine_y = { 'progress' },
-		lualine_z = { 'location'  },
+		lualine_x = {  },
+		lualine_y = {
+			{
+				'branch',
+				icon = ''
+			},
+			'filetype',
+		},
+		lualine_z = { 'progress' },
 	},
 	inactive_sections = {
 		lualine_a = {},
