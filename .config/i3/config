@@ -68,6 +68,7 @@ bindsym Print exec --no-startup-id spectacle -bcr -o "$HOME/Pictures/Screenshots
 bindsym Shift+Print exec --no-startup-id spectacle -bc -o "$HOME/Pictures/Screenshots/$(date '+%Y-%m-%d_%H%M%S').png"
 
 bindsym --whole-window $mod+Shift+t floating toggle
+bindsym $mod+Shift+x sticky toggle
 
 # WINDOWS RULES
 

@@ -25,6 +25,8 @@ if !exists('g:vscode')
 	Plug 'akinsho/nvim-bufferline.lua'
 	Plug 'kyazdani42/nvim-web-devicons'
 	Plug 'liuchengxu/vim-which-key'
+	" Lush
+	Plug 'rktjmp/lush.nvim'
 
 	call plug#end()
 
