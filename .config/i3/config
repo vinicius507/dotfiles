@@ -8,8 +8,8 @@ set $ws3 Misc
 # MISC
 
 floating_modifier $mod 
-default_border pixel 5
-default_floating_border pixel 5
+default_border pixel 0
+default_floating_border pixel 0
 font FiraCode Nerd Font Mono
 
 # STARTUP
@@ -78,13 +78,17 @@ for_window [class="firefox" title="Picture-in-Picture"] sticky enable
 for_window [class="Virt-manager"] floating enable
 for_window [class="dolphin"] floating enable
 for_window [urgent="latest"] focus
+for_window [class="VirtualBox Manager"] floating enable
+for_window [class="gwenview"] floating enable
 
 # SCRATCHPADS
 
 for_window [class="Spotify"][floating] move scratchpad
 for_window [class="Alacritty" title="scratchpad"] move scratchpad
+for_window [class="VirtualBox Manager"] move scratchpad
 bindsym $mod+s [class="Spotify"] scratchpad show
 bindsym $mod+z [class="Alacritty" title="scratchpad"] scratchpad show
+bindsym $mod+f [class="VirtualBox Manager"] scratchpad show
 
 # PLASMA COMPATIBILITY
 

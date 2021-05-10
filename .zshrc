@@ -9,6 +9,7 @@ export MANWIDTH=999
 export LIBVIRT_DEFAULT_URI="qemu:///system"
 export USER="vgoncalv"
 export MAIL="vgoncalv@student.42sp.org.br"
+export BAT_THEME="TwoDark"
 
 ZSH_THEME=""
 fpath+="$HOME/.zsh/pure"

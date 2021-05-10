@@ -20,7 +20,7 @@ if !exists('g:vscode')
 	Plug 'nvim-telescope/telescope.nvim'
 	Plug 'nvim-telescope/telescope-fzy-native.nvim'
 	" Appearance
-	Plug 'marko-cerovac/material.nvim'
+	Plug 'joshdick/onedark.vim'
 	Plug 'hoob3rt/lualine.nvim'
 	Plug 'akinsho/nvim-bufferline.lua'
 	Plug 'kyazdani42/nvim-web-devicons'
@@ -39,12 +39,12 @@ if !exists('g:vscode')
 	luafile ~/.config/nvim/plug-config/compe.lua
 	luafile ~/.config/nvim/plug-config/lsp-trouble.lua
 	luafile ~/.config/nvim/plug-config/bufferline.lua
-	luafile ~/.config/nvim/themes/config.lua
+	" luafile ~/.config/nvim/themes/config.lua
 	luafile ~/.config/nvim/themes/lualine.lua
 	source ~/.config/nvim/plug-config/which_key.vim
 
 	" Config
-	colorscheme material
+	colorscheme onedark
 	set number
 	set shiftwidth=4
 	set tabstop=4
