@@ -38,8 +38,7 @@ if !exists('g:vscode')
 	luafile ~/.config/nvim/plug-config/treesitter.lua
 	luafile ~/.config/nvim/plug-config/compe.lua
 	luafile ~/.config/nvim/plug-config/lsp-trouble.lua
-	luafile ~/.config/nvim/plug-config/bufferline.lua
-	" luafile ~/.config/nvim/themes/config.lua
+	luafile ~/.config/nvim/themes/bufferline.lua
 	luafile ~/.config/nvim/themes/lualine.lua
 	source ~/.config/nvim/plug-config/which_key.vim
 
