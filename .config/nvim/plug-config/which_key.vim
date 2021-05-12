@@ -27,6 +27,6 @@ let g:which_key_map['x'] = {
 	\ 'x' : [ 'x', 'toggle' ],
 	\}
 let g:which_key_centered = 0
-let g:which_key_timeout = 300
+let g:which_key_timeout = 100
 
 call which_key#register("'", "g:which_key_map")

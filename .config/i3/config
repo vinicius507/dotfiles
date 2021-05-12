@@ -80,15 +80,18 @@ for_window [class="dolphin"] floating enable
 for_window [urgent="latest"] focus
 for_window [class="VirtualBox Manager"] floating enable
 for_window [class="gwenview"] floating enable
+for_window [class="Zathura"] floating enable, resize set 714 944, move position 1156 50
 
 # SCRATCHPADS
 
 for_window [class="Spotify"][floating] move scratchpad
 for_window [class="Alacritty" title="scratchpad"] move scratchpad
 for_window [class="VirtualBox Manager"] move scratchpad
+for_window [class="Zathura"] move scratchpad
 bindsym $mod+s [class="Spotify"] scratchpad show
 bindsym $mod+z [class="Alacritty" title="scratchpad"] scratchpad show
 bindsym $mod+f [class="VirtualBox Manager"] scratchpad show
+bindsym $mod+x [class="Zathura"] scratchpad show
 
 # PLASMA COMPATIBILITY
 

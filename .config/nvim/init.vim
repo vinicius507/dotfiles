@@ -41,6 +41,7 @@ if !exists('g:vscode')
 	luafile ~/.config/nvim/themes/bufferline.lua
 	luafile ~/.config/nvim/themes/lualine.lua
 	source ~/.config/nvim/plug-config/which_key.vim
+	source ~/.config/nvim/42header.vim
 
 	" Config
 	colorscheme onedark
@@ -71,7 +72,7 @@ if !exists('g:vscode')
 	" 42 configuration
 	if !empty((globpath(&rtp, '/autoload/stdheader.vim')))
 		command! Stdheader call stdheader#stdheader()
-		map <F2> :Stdheader<CR>
+		map <F2> :Header42<CR>
 		autocmd BufWritePre * call stdheader#update()
 	endif
 

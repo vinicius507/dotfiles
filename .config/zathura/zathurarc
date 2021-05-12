@@ -1,35 +1,33 @@
-# Base16 Material Darker
-# Author: Nate Peterson
+set recolor "true"
 
-set default-bg                  "#111111"
-set default-fg                  "#cccccc"
+set completion-bg "#121012"
+set completion-fg "#fffaf9"
+set completion-group-bg "#121012"
+set completion-group-fg "#B7BAC7"
+set completion-highlight-bg "#fffaf9"
+set completion-highlight-fg "#121012"
 
-set statusbar-fg                "#cccccc"
-set statusbar-bg                "#111111"
+set recolor-lightcolor "#121012"
+set recolor-darkcolor "#fffaf9"
+set default-bg "#121012"
 
-set inputbar-bg                 "#111111"
-set inputbar-fg                 "#cccccc"
+set inputbar-bg "#121012"
+set inputbar-fg "#fffaf9"
+set notification-bg "#121012"
+set notification-fg "#fffaf9"
+set notification-error-bg "#D1CCD4"
+set notification-error-fg "#fffaf9"
+set notification-warning-bg "#D1CCD4"
+set notification-warning-fg "#fffaf9"
+set statusbar-bg "#121012"
+set statusbar-fg "#fffaf9"
+set index-bg "#121012"
+set index-fg "#fffaf9"
+set index-active-bg "#fffaf9"
+set index-active-fg "#121012"
+set render-loading-bg "#121012"
+set render-loading-fg "#fffaf9"
 
-set notification-bg             "#111111"
-set notification-fg             "#cccccc"
-
-set notification-error-bg       "#111111"
-set notification-error-fg       "#F07178"
-
-set notification-warning-bg     "#111111"
-set notification-warning-fg     "#F07178"
-
-set highlight-color             "#FFCB6B"
-set highlight-active-color      "#82AAFF"
-
-set completion-bg               "#303030"
-set completion-fg               "#82AAFF"
-
-set completion-highlight-fg     "#FFFFFF"
-set completion-highlight-bg     "#82AAFF"
-
-set recolor-lightcolor          "#111111"
-set recolor-darkcolor           "#cccccc"
-
-set recolor                     "true"
-set recolor-keephue             "false"
+set window-title-home-tilde true
+set statusbar-basename true
+set selection-clipboard clipboard
