@@ -1,2 +1,3 @@
 .config/bin/kolor-generator
-.config/nvim/plugged
+.config/nvim/plugin
+.config/nvim/themes/myriad-nvim
