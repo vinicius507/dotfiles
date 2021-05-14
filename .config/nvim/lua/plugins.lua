@@ -62,6 +62,9 @@ return require('packer').startup(function (use)
 
 	-- Which Key
 	use 'liuchengxu/vim-which-key'
-	use { 'AckslD/nvim-whichkey-setup.lua', requires = {'liuchengxu/vim-which-key'}, }
+	use { 'AckslD/nvim-whichkey-setup.lua', requires = {'liuchengxu/vim-which-key'} }
+
+	-- Toggle Terminal
+	use {"akinsho/nvim-toggleterm.lua"}
 end
 )
