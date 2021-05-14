@@ -1,3 +1,1 @@
-require('todo-comments').setup{
-	pattern = '{KEYWORDS}',
-}
+require('todo-comments').setup{}

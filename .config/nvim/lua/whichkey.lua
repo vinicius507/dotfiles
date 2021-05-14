@@ -10,7 +10,6 @@ local keymap = {
 	['7'] = 'which_key_ignore',
 	['8'] = 'which_key_ignore',
 	['9'] = 'which_key_ignore',
-	q = 'kill buffer',
     f = {
         name = '+find',
 		f = {"<cmd>lua require('telescope.builtin').find_files()<CR>", 'files'},
@@ -24,6 +23,8 @@ local keymap = {
             s = {"<cmd>lua require('telescope.builtin').git_status()<CR>", 'status'},
         },
     },
+	q = { '<cmd>bdelete!<CR>', 'kill buffer' },
+	t = { '<cmd>TodoTrouble<CR>', 'todo' },
 	x = {
 		name = '+trouble',
 		d = { '<cmd>LspTroubleToggle lsp_document_diagnostics<CR>', 'document' },
