@@ -50,4 +50,4 @@ map('n', '<Leader>fGb', "<cmd>lua require('telescope.builtin').git_branches()<CR
 map('n', '<Leader>fGs', "<cmd>lua require('telescope.builtin').git_status()<CR>", { noremap = true })
 
 -- TODO Comments Keys
-map('n', '<Leader>t', '<cmd>TodoTrouble', { silent = true, noremap = true })
+map('n', '<Leader>t', '<cmd>TodoTrouble<CR>', { silent = true, noremap = true })

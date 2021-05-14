@@ -29,3 +29,7 @@ local window_options = {
 set_options(GLOBAL, global_options)
 set_options(BUFFER, buffer_options)
 set_options(WINDOW, window_options)
+
+-- Norme.nvim options
+vim.cmd "autocmd BufEnter *.c lua require('lint').try_lint()"
+vim.cmd "autocmd BufWritePost *.c lua require('lint').try_lint()"

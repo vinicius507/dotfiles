@@ -62,12 +62,18 @@ return require('packer').startup(function (use)
 
 	-- Which Key
 	use 'liuchengxu/vim-which-key'
-	use { 'AckslD/nvim-whichkey-setup.lua', requires = {'liuchengxu/vim-which-key'} }
+	use { 'AckslD/nvim-whichkey-setup.lua', requires = { 'liuchengxu/vim-which-key' } }
 
 	-- Toggle Terminal
 	use 'akinsho/nvim-toggleterm.lua'
 
 	-- TODO Comments
 	use 'folke/todo-comments.nvim'
+
+	-- NVIM lint
+	use 'mfussenegger/nvim-lint'
+
+	-- Norme.nvim
+	use { 'vinicius507/norme.nvim', requires = { 'mfussenegger/nvim-lint' } }
 end
 )
