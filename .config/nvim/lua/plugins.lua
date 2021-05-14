@@ -49,7 +49,7 @@ return require('packer').startup(function (use)
 	use 'folke/lsp-trouble.nvim'
 
 	-- Treesitter
-	use {'nvim-treesitter/nvim-treesitter', run = ":TSUpdate"}
+	use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
 
 	-- Compe
 	use 'hrsh7th/nvim-compe'
@@ -65,6 +65,9 @@ return require('packer').startup(function (use)
 	use { 'AckslD/nvim-whichkey-setup.lua', requires = {'liuchengxu/vim-which-key'} }
 
 	-- Toggle Terminal
-	use {"akinsho/nvim-toggleterm.lua"}
+	use 'akinsho/nvim-toggleterm.lua'
+
+	-- TODO Comments
+	use 'folke/todo-comments.nvim'
 end
 )

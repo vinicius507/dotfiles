@@ -41,10 +41,13 @@ map('i', '<C-Space>', 'compe#complete()', {expr = true, noremap = true})
 map('i', '<CR>', 'compe#confirm("<CR>")', {expr = true, noremap = true})
 
 -- Telescope Keys
-map('n', '<Leader>ff', "<cmd>lua require('telescope.builtin').find_files()<CR>", {})
-map('n', '<Leader>fg', "<cmd>lua require('telescope.builtin').live_grep()<CR>", {})
-map('n', '<Leader>fh', "<cmd>lua require('telescope.builtin').help_tags()<CR>", {})
-map('n', '<Leader>fGg', "<cmd>lua require('telescope.builtin').git_commits()<CR>", {})
-map('n', '<Leader>fGc', "<cmd>lua require('telescope.builtin').git_bcommits()<CR>", {})
-map('n', '<Leader>fGb', "<cmd>lua require('telescope.builtin').git_branches()<CR>", {})
-map('n', '<Leader>fGs', "<cmd>lua require('telescope.builtin').git_status()<CR>", {})
+map('n', '<Leader>ff', "<cmd>lua require('telescope.builtin').find_files()<CR>", { noremap = true })
+map('n', '<Leader>fg', "<cmd>lua require('telescope.builtin').live_grep()<CR>", { noremap = true })
+map('n', '<Leader>fh', "<cmd>lua require('telescope.builtin').help_tags()<CR>", { noremap = true })
+map('n', '<Leader>fGg', "<cmd>lua require('telescope.builtin').git_commits()<CR>", { noremap = true })
+map('n', '<Leader>fGc', "<cmd>lua require('telescope.builtin').git_bcommits()<CR>", { noremap = true })
+map('n', '<Leader>fGb', "<cmd>lua require('telescope.builtin').git_branches()<CR>", { noremap = true })
+map('n', '<Leader>fGs', "<cmd>lua require('telescope.builtin').git_status()<CR>", { noremap = true })
+
+-- TODO Comments Keys
+map('n', '<Leader>t', '<cmd>TodoTrouble', { silent = true, noremap = true })

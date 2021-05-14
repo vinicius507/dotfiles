@@ -17,6 +17,7 @@ require('md-bufferline')
 require('md-lualine')
 require('whichkey')
 require('md-toggleterm')
+require('todo')
 
 -- 42 School stuff
 vim.cmd('source ~/.config/nvim/vimscript/42.vim')
