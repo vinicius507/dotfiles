@@ -17,8 +17,8 @@ local global_options = {
 }
 
 local buffer_options = {
-	tabstop = 4,
 	shiftwidth = 4,
+	tabstop = 4,
 }
 
 local window_options = {
@@ -31,5 +31,7 @@ set_options(BUFFER, buffer_options)
 set_options(WINDOW, window_options)
 
 -- Norme.nvim options
-vim.cmd "autocmd BufEnter *.c lua require('lint').try_lint()"
-vim.cmd "autocmd BufWritePost *.c lua require('lint').try_lint()"
+vim.cmd "autocmd BufEnter *.c,*.h lua require('lint').try_lint()"
+vim.cmd "autocmd BufWritePost *.c,*.h lua require('lint').try_lint()"
+vim.cmd "autocmd InsertLeave *.c,*.h lua require('lint').try_lint()"
+vim.cmd "autocmd TextChanged *.c,*.h lua require('lint').try_lint()"

@@ -75,5 +75,8 @@ return require('packer').startup(function (use)
 
 	-- Norme.nvim
 	use { 'vinicius507/norme.nvim', requires = { 'mfussenegger/nvim-lint' } }
+
+	-- 42 Header
+	use 'eduardomosko/header42.nvim'
 end
 )

@@ -19,6 +19,4 @@ require('whichkey')
 require('md-toggleterm')
 require('todo')
 require('md-lint')
-
--- 42 School stuff
-vim.cmd('source ~/.config/nvim/vimscript/42.vim')
+require('42header')

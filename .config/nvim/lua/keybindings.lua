@@ -51,3 +51,6 @@ map('n', '<Leader>fGs', "<cmd>lua require('telescope.builtin').git_status()<CR>"
 
 -- TODO Comments Keys
 map('n', '<Leader>t', '<cmd>TodoTrouble<CR>', { silent = true, noremap = true })
+
+-- 42 Header
+map('n', '<F2>', ':Stdheader<CR>', { noremap = true })
