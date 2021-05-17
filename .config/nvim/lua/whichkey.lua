@@ -10,19 +10,28 @@ local keymap = {
 	['7'] = 'which_key_ignore',
 	['8'] = 'which_key_ignore',
 	['9'] = 'which_key_ignore',
-    f = {
-        name = '+find',
+	f = {
+		name = '+find',
 		f = {"<cmd>lua require('telescope.builtin').find_files()<CR>", 'files'},
-        g = {"<cmd>lua require('telescope.builtin').live_grep()<CR>", 'grep'},
-        h = {"<cmd>lua require('telescope.builtin').help_tags()<CR>", 'help tags'},
-        G = {
-            name = '+git',
-            g = {"<cmd>lua require('telescope.builtin').git_commits()<CR>", 'commits'},
-            c = {"<cmd>lua require('telescope.builtin').git_bcommits()<CR>", 'bcommits'},
-            b = {"<cmd>lua require('telescope.builtin').git_branches()<CR>", 'branches'},
-            s = {"<cmd>lua require('telescope.builtin').git_status()<CR>", 'status'},
-        },
-    },
+		g = {"<cmd>lua require('telescope.builtin').live_grep()<CR>", 'grep'},
+		h = {"<cmd>lua require('telescope.builtin').help_tags()<CR>", 'help tags'},
+		G = {
+			name = '+git',
+			g = {"<cmd>lua require('telescope.builtin').git_commits()<CR>", 'commits'},
+			c = {"<cmd>lua require('telescope.builtin').git_bcommits()<CR>", 'bcommits'},
+			b = {"<cmd>lua require('telescope.builtin').git_branches()<CR>", 'branches'},
+			s = {"<cmd>lua require('telescope.builtin').git_status()<CR>", 'status'},
+		},
+	},
+	g = {
+		name = '+lsp',
+		d = { '<cmd>lua vim.lsp.buf.definition()<CR>', 'definition' },
+		D = { '<cmd>lua vim.lsp.buf.declaration()<CR>', 'declaration' },
+		h = { '<cmd>lua vim.lsp.buf.hover()<CR>', 'hover'},
+		i = { '<cmd>lua vim.lsp.buf.implementation()<CR>', 'implementation' },
+		r = { '<cmd>LspTrouble lsp_references<cr>', 'references' }, 
+		s = { '<cmd>lua vim.lsp.buf.signature_help()<CR>', 'signature help' },
+	},
 	q = { '<cmd>bdelete!<CR>', 'kill buffer' },
 	t = { '<cmd>TodoTrouble<CR>', 'todo' },
 	x = {
@@ -35,29 +44,13 @@ local keymap = {
 	},
 }
 
-local lsp_keymaps = {
-	name = '+lsp',
-	d = { '<cmd>lua vim.lsp.buf.definition()<CR>', 'definition' },
-	D = { '<cmd>lua vim.lsp.buf.declaration()<CR>', 'declaration' },
-	h = { '<cmd>lua vim.lsp.buf.hover()<CR>', 'hover'},
-	i = { '<cmd>lua vim.lsp.buf.implementation()<CR>', 'implementation' },
-	r = { '<cmd>LspTrouble lsp_references<cr>', 'references' }, 
-	s = { '<cmd>lua vim.lsp.buf.signature_help()<CR>', 'signature help' },
-	c = 'which_key_ignore',
-	g = 'which_key_ignore',
-	x = 'which_key_ignore',
-	['cc'] = 'which_key_ignore',
-	['%'] = 'which_key_ignore',
-}
-
 require("whichkey_setup").config{
-    hide_statusline = false,
-    default_keymap_settings = {
-        silent=true,
-        noremap=true,
-    },
-    default_mode = 'n',
+	hide_statusline = false,
+	default_keymap_settings = {
+		silent=true,
+		noremap=true,
+	},
+	default_mode = 'n',
 }
 
-wk.register_keymap('g', lsp_keymaps, { noremap = true, silent = true, bufnr = bufnr })
 wk.register_keymap('leader', keymap)

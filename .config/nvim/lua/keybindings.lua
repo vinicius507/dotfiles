@@ -1,7 +1,7 @@
 local map = vim.api.nvim_set_keymap
 
 -- Leader
-vim.g.mapleader = "'"
+vim.g.mapleader = " "
 
 -- Buffer Keys
 map('n', '<C-h>', ':wincmd h<CR>', {silent = true, noremap = true})
@@ -12,17 +12,17 @@ map('n', '<C-l>', ':wincmd l<CR>', {silent = true, noremap = true})
 map('n', '<Leader>q', '<cmd>bdelete!<CR>', {silent = true, noremap = true})
 
 -- LSP Keys
-map('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', {silent = true, noremap = true})
-map('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>', {silent = true, noremap = true})
-map('n', 'gh', '<cmd>lua vim.lsp.buf.hover()<CR>', {silent = true, noremap = true})
-map('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', {silent = true, noremap = true})
-map('n', 'gs', '<cmd>lua vim.lsp.buf.signature_help()<CR>', {silent = true, noremap = true})
+map('n', '<Leader>gd', '<cmd>lua vim.lsp.buf.definition()<CR>', {silent = true, noremap = true})
+map('n', '<Leader>gD', '<cmd>lua vim.lsp.buf.declaration()<CR>', {silent = true, noremap = true})
+map('n', '<Leader>gh', '<cmd>lua vim.lsp.buf.hover()<CR>', {silent = true, noremap = true})
+map('n', '<Leader>gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', {silent = true, noremap = true})
+map('n', '<Leader>gs', '<cmd>lua vim.lsp.buf.signature_help()<CR>', {silent = true, noremap = true})
 map('n', '<C-n>', '<cmd>lua vim.lsp.buf.goto_next()<CR>', {silent = true, noremap = true})
 map('n', '<C-p>', '<cmd>lua vim.lsp.buf.goto_prev()<CR>', {silent = true, noremap = true})
 map('n', '<C-d>', '<cmd>lua vim.lsp.buf.show_line_diagnostics()<CR>', {silent = true, noremap = true})
 
 -- Fix for gg
-map('n', 'gg', '<C-Home>', { noremap = true })
+map('n', '<Leader>gg', '<C-Home>', { noremap = true })
 
 -- LSP Trouble Keys
 map('n', '<leader>xx', '<cmd>LspTroubleToggle<cr>', {silent = true, noremap = true})
@@ -30,7 +30,7 @@ map('n', '<leader>xw', '<cmd>LspTroubleToggle lsp_workspace_diagnostics<cr>', {s
 map('n', '<leader>xd', '<cmd>LspTroubleToggle lsp_document_diagnostics<cr>', {silent = true, noremap = true})
 map('n', '<leader>xl', '<cmd>LspTroubleToggle loclist<cr>', {silent = true, noremap = true})
 map('n', '<leader>xq', '<cmd>LspTroubleToggle quickfix<cr>', {silent = true, noremap = true})
-map('n', 'gr', '<cmd>LspTrouble lsp_references<cr>', {silent = true, noremap = true})
+map('n', '<Leader>gr', '<cmd>LspTrouble lsp_references<cr>', {silent = true, noremap = true})
 
 -- Compe Keys
 map('i', '<Tab>', 'v:lua.tab_complete()', {expr = true, noremap = true})
