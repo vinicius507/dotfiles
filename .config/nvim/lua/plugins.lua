@@ -34,9 +34,8 @@ return require('packer').startup(function (use)
 
 	-- Appearance
 	use 'joshdick/onedark.vim'
-	use 'hoob3rt/lualine.nvim'
-	use 'akinsho/nvim-bufferline.lua'
-	use 'kyazdani42/nvim-web-devicons' --dependency for a lot of plugins in here
+	use { 'hoob3rt/lualine.nvim', requires = { 'kyazdani42/nvim-web-devicons' } }
+	use { 'akinsho/nvim-bufferline.lua', requires = { 'kyazdani42/nvim-web-devicons'} }
 
 	-- T-pope
 	use 'tpope/vim-surround'
@@ -55,26 +54,20 @@ return require('packer').startup(function (use)
 	use 'hrsh7th/nvim-compe'
 
 	-- Telescope
-	use 'nvim-lua/popup.nvim'
-	use 'nvim-lua/plenary.nvim'
-	use 'nvim-telescope/telescope.nvim'
+	use { 'nvim-telescope/telescope.nvim', requires = { 'nvim-lua/popup.nvim', 'nvim-lua/plenary.nvim' } }
 	use 'nvim-telescope/telescope-fzy-native.nvim'
 
 	-- Which Key
-	use 'liuchengxu/vim-which-key'
 	use { 'AckslD/nvim-whichkey-setup.lua', requires = { 'liuchengxu/vim-which-key' } }
 
 	-- Toggle Terminal
 	use 'akinsho/nvim-toggleterm.lua'
 
 	-- TODO Comments
-	use 'folke/todo-comments.nvim'
+	use { 'folke/todo-comments.nvim', requires = { 'nvim-lua/plenary.nvim' } }
 
 	-- Nvim-tree
-	use 'kyazdani42/nvim-tree.lua'
-
-	-- NVIM lint
-	use 'mfussenegger/nvim-lint'
+	use { 'kyazdani42/nvim-tree.lua', requires = { 'kyazdani42/nvim-web-devicons' } }
 
 	-- Norme.nvim
 	use { 'vinicius507/norme.nvim', requires = { 'mfussenegger/nvim-lint' } }
