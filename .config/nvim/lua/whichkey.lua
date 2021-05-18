@@ -10,6 +10,7 @@ local keymap = {
 	['7'] = 'which_key_ignore',
 	['8'] = 'which_key_ignore',
 	['9'] = 'which_key_ignore',
+	['<Tab>'] = { '<cmd>NvimTreeToggle<CR>', 'Nvim-tree' },
 	f = {
 		name = '+find',
 		f = {"<cmd>lua require('telescope.builtin').find_files()<CR>", 'files'},

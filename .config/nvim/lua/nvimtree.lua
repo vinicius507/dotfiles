@@ -12,7 +12,7 @@ local config = {
 	follow = 1,
 	indent_markers = 0,
 	hide_dotfiles = 0,
-	git_hl = 1,
+	git_hl = 0,
 	root_folder_modifier = ':t',
 	tab_open = 0,
 	width_allow_resize = 0,
@@ -22,7 +22,7 @@ local config = {
 	group_empty = 1,
 	lsp_diagnostics = 1,
 	special_files = { 'README.md', 'Makefile' },
-	show_icons = { git = 1, folders = 1, files = 1 },
+	show_icons = { git = 0, folders = 1, files = 1 },
 	icons = {
 		default = '',
 		symlink= '',
