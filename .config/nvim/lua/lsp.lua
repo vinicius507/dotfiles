@@ -2,7 +2,13 @@ local lspinstall = require('lspinstall')
 local lspconfig = require('lspconfig')
 
 local config = {
-	clangd = { cmd = { 'clangd', '--background-index', '--suggest-missing-includes' } },
+	clangd = {
+		cmd = {
+			'clangd',
+			'--background-index',
+			'--suggest-missing-includes'
+		},
+	},
 	lua = {
 		settings = {
 			Lua = {

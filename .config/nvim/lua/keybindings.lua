@@ -21,9 +21,6 @@ map('n', '<C-n>', '<cmd>lua vim.lsp.buf.goto_next()<CR>', {silent = true, norema
 map('n', '<C-p>', '<cmd>lua vim.lsp.buf.goto_prev()<CR>', {silent = true, noremap = true})
 map('n', '<C-d>', '<cmd>lua vim.lsp.buf.show_line_diagnostics()<CR>', {silent = true, noremap = true})
 
--- Fix for gg
-map('n', '<Leader>gg', '<C-Home>', { noremap = true })
-
 -- LSP Trouble Keys
 map('n', '<leader>xx', '<cmd>LspTroubleToggle<cr>', {silent = true, noremap = true})
 map('n', '<leader>xw', '<cmd>LspTroubleToggle lsp_workspace_diagnostics<cr>', {silent = true, noremap = true})
@@ -48,6 +45,11 @@ map('n', '<Leader>fGg', "<cmd>lua require('telescope.builtin').git_commits()<CR>
 map('n', '<Leader>fGc', "<cmd>lua require('telescope.builtin').git_bcommits()<CR>", { noremap = true })
 map('n', '<Leader>fGb', "<cmd>lua require('telescope.builtin').git_branches()<CR>", { noremap = true })
 map('n', '<Leader>fGs', "<cmd>lua require('telescope.builtin').git_status()<CR>", { noremap = true })
+
+-- Nvim-tree
+map('n', '<Leader><Tab>', '<cmd>NvimTreeToggle<CR>', { noremap = true })
+map('n', '<Leader>nr', '<cmd>NvimTreeRefresh<CR>', { noremap = true })
+map('n', '<Leader>nf', '<cmd>NvimTreeFindFile<CR>', { noremap = true })
 
 -- TODO Comments Keys
 map('n', '<Leader>t', '<cmd>TodoTrouble<CR>', { silent = true, noremap = true })

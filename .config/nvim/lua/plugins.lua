@@ -11,7 +11,7 @@ if fn.empty(fn.glob(install_path)) > 0 then
 end
 
 -- Function for opt plugins
-local function require_plugin(plugin)
+local require_plugin = function(plugin)
 	local plugin_prefix = fn.stdpath("data") .. "/site/pack/packer/opt/"
 
 	local plugin_path = plugin_prefix .. plugin .. "/"
@@ -36,7 +36,7 @@ return require('packer').startup(function (use)
 	use 'joshdick/onedark.vim'
 	use 'hoob3rt/lualine.nvim'
 	use 'akinsho/nvim-bufferline.lua'
-	use 'kyazdani42/nvim-web-devicons'
+	use 'kyazdani42/nvim-web-devicons' --dependency for a lot of plugins in here
 
 	-- T-pope
 	use 'tpope/vim-surround'
@@ -49,7 +49,7 @@ return require('packer').startup(function (use)
 	use 'folke/lsp-trouble.nvim'
 
 	-- Treesitter
-	use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
+	use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
 
 	-- Compe
 	use 'hrsh7th/nvim-compe'
@@ -69,6 +69,9 @@ return require('packer').startup(function (use)
 
 	-- TODO Comments
 	use 'folke/todo-comments.nvim'
+
+	-- Nvim-tree
+	use 'kyazdani42/nvim-tree.lua'
 
 	-- NVIM lint
 	use 'mfussenegger/nvim-lint'
