@@ -4,6 +4,7 @@ set $mod Mod1
 set $ws1 Web
 set $ws2 Code
 set $ws3 Misc
+set $term kitty
 
 # MISC
 
@@ -15,18 +16,20 @@ font FiraCode Nerd Font Mono
 # STARTUP
 
 exec --no-startup-id wmctrl -c Plasma
+exec --no-startup-id ~/.fehbg &
+exec --no-startup-id picom -b
+exec --no-startup-id $term --title "scratchpad"
 exec_always --no-startup-id $HOME/.config/bin/i3-auto-layout
-exec --no-startup-id alacritty --title "scratchpad"
 
 # GAPS
 
 gaps inner 20
 gaps outer 30
-gaps bottom -10
+gaps bottom 0
 
 # KEYBINDINGS
 
-bindsym $mod+Return exec --no-startup-id alacritty
+bindsym $mod+Return exec --no-startup-id $term
 bindcode 133 exec --no-startup-id qdbus org.kde.lattedock /Latte activateLauncherMenu
 bindsym $mod+space exec --no-startup-id qdbus org.kde.klauncher5 /KLauncher exec_blind "dbus-send" "(" "--type=method_call" "--dest=org.kde.krunner" "/App" "org.kde.krunner.App.toggleDisplay" ")"
 bindsym $mod+Shift+q kill
@@ -72,23 +75,25 @@ bindsym $mod+Shift+x sticky toggle
 # WINDOWS RULES
 
 for_window [class="Spotify"] floating enable, resize set 1280 720, move position 320px 180px
-for_window [class="Alacritty" title="scratchpad"] floating enable, resize set 1024 576, move position 448px 50px
+for_window [class="kitty" title="scratchpad"] floating enable, resize set 1024 576, move position 448px 50px
 for_window [class="firefox" title="Picture-in-Picture"] sticky enable
 for_window [class="Virt-manager"] floating enable
 for_window [class="dolphin"] floating enable
 for_window [urgent="latest"] focus
 for_window [class="VirtualBox Manager"] floating enable
 for_window [class="gwenview"] floating enable
-for_window [class="Zathura"] floating enable, resize set 714 944, move position 1156 50
+for_window [class="Zathura"] floating enable, resize set 714 962, move position 1156 50
+for_window [class="ksysguard"] floating enable
+for_window [class="Wpg"] floating enable
 
 # SCRATCHPADS
 
 for_window [class="Spotify"][floating] move scratchpad
-for_window [class="Alacritty" title="scratchpad"] move scratchpad
+for_window [class="kitty" title="scratchpad"] move scratchpad
 for_window [class="VirtualBox Manager"] move scratchpad
 for_window [class="Zathura"] move scratchpad
-bindsym $mod+s [class="Spotify"] scratchpad show
-bindsym $mod+z [class="Alacritty" title="scratchpad"] scratchpad show
+bindsym $mod+Shift+s [class="Spotify"] scratchpad show
+bindsym $mod+z [class="kitty" title="scratchpad"] scratchpad show
 bindsym $mod+f [class="VirtualBox Manager"] scratchpad show
 bindsym $mod+x [class="Zathura"] scratchpad show
 
