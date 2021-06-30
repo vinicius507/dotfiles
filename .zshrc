@@ -2,7 +2,7 @@ export ZSH="$HOME/.oh-my-zsh"
 export EDITOR="nvim"
 export SPICETIFY_INSTALL="$HOME/.config/spicetify"
 export PATH="$SPICETIFY_INSTALL:$PATH"
-export PATH="$HOME/.config/bin:$PATH"
+export PATH="$HOME/.config/bin:$HOME/.local/bin:$PATH"
 export PATH="$HOME/.local/share/gem/ruby/3.0.0/bin:$PATH"
 export MANPAGER="nvim +Man!"
 export MANWIDTH=999
@@ -11,25 +11,26 @@ export USER="vgoncalv"
 export BAT_THEME="TwoDark"
 
 ZSH_THEME=""
-fpath+="$HOME/.zsh/pure"
+fpath+="$HOME/.config/zsh/pure"
 
 plugins=(
 	git
 	asdf
-	zsh-autosuggestions
+	#zsh-autosuggestions
 	ssh-agent
-	zsh-syntax-highlighting
+	#zsh-syntax-highlighting
 )
 
 source $ZSH/oh-my-zsh.sh
 autoload -U promptinit; promptinit
 prompt pure
 
-#aliases
+# Aliases
 alias dotfiles="/usr/bin/git --git-dir=$HOME/.dotfiles.git/ --work-tree=$HOME"
 alias vim="nvim"
 alias vcfg="nvim $HOME/.config/nvim/init.vim"
 alias tldr="man -M ~/.tldr"
+alias neovide="neovide --remote-tcp=localhost:6969"
 
 #asdf configs
-. $HOME/.asdf/asdf.sh
+. /opt/asdf-vm/asdf.sh
