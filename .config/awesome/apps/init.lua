@@ -1,3 +1,0 @@
-local apps = {}
-
-return apps

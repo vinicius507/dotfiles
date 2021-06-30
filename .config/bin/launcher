@@ -1,0 +1,15 @@
+#!/usr/bin/env sh
+
+OPTION="$1"
+CONFIG="$HOME/.config/rofi/config.rasi"
+
+case "$OPTION" in
+	drun)
+		rofi -config "$CONFIG" -show drun -matching fuzzy
+		;;
+	run)
+		rofi -config "$CONFIG" -show run -theme-str 'window { location: north; anchor: north; y-offset: 32; x-offset: 0; } mainbox { children: ["inputbar"]; } inputbar { background-color: @bg-dark; }'
+		;;
+	*)
+		;;
+esac		

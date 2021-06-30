@@ -5,6 +5,7 @@ require('awful.hotkeys_popup.keys')
 local utils = require('utils')
 
 local user = require('config').user
+local apps = require('config').apps
 
 local global_keys = gears.table.join(
 	-- Navigation
@@ -34,15 +35,32 @@ local global_keys = gears.table.join(
 	),
 
 	-- Applications
-	-- 	Terminal
-	awful.key({ _G.altkey }, 'space',
+	--  Launcher
+	awful.key({ _G.superkey }, 'd',
 		function ()
-			awful.spawn('dmenu_run')
+			awful.spawn(apps.launcher)
 		end
 	),
+	awful.key({ _G.superkey }, 'r',
+		function ()
+			awful.spawn(apps.run)
+		end
+	),
+	-- 	Terminal
 	awful.key({ _G.superkey }, 'Return',
 		function ()
 			awful.spawn(user.terminal)
+		end
+	),
+	--  Editor
+	awful.key( { _G.superkey }, 'e',
+		function ()
+			awful.spawn.single_instance(user.editor, {},
+				function (c)
+					return c.class == 'neovide'
+				end,
+				'editor'
+			)
 		end
 	),
 
