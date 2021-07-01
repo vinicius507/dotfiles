@@ -1,6 +1,7 @@
 local awful = require('awful')
 local gears = require('gears')
 local beautiful = require('beautiful')
+local wibox = require('wibox')
 
 local utils = {}
 
@@ -88,6 +89,26 @@ utils.float_and_resize = function (c, width, height)
     awful.client.property.set(c, 'floating_geometry', c:geometry())
     c.floating = true
     c:raise()
+end
+
+-- Colorize Text
+utils.colorize_text = function (text, color)
+	return "<span foreground='"..color.."'>"..text.."</span>"
+end
+
+-- Rounded Rectangle
+utils.rrect = function(radius)
+    return function(cr, width, height)
+        gears.shape.rounded_rect(cr, width, height, radius)
+    end
+end
+
+-- Vertical Pad
+utils.vertical_pad = function (height)
+    return wibox.widget({
+        forced_height = height,
+        layout = wibox.layout.fixed.vertical
+    })
 end
 
 return utils
