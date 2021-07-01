@@ -25,10 +25,10 @@ theme.border_normal	= _G.x.color0
 theme.border_urgent	= _G.x.color0
 theme.border_focus	= _G.x.color0
 
-theme.border_radius = _G.dpi(5)
+theme.border_radius = _G.dpi(3)
 
 theme.titlebars_enabled			= true
-theme.title_bar_size			= dpi(20)
+theme.title_bar_size			= _G.dpi(20)
 theme.titlebar_title_enabled	= true
 theme.titlebar_font				= 'FiraCode Nerd Font Medium 9'
 theme.titlebar_position			= 'top'
