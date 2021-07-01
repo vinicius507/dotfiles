@@ -1,6 +1,8 @@
 local awful = require('awful')
+local beautiful = require('beautiful')
 local wibox = require('wibox')
 local taglist_buttons = require('keys.taglist_buttons')
+
 
 local mytaglist = function (s)
 	local taglist = awful.widget.taglist({
@@ -12,14 +14,22 @@ local mytaglist = function (s)
 				{
 					{
 						{
-							id     = 'text_role',
-							widget = wibox.widget.textbox,
+							{
+								{
+									id     = 'text_role',
+									widget = wibox.widget.textbox,
+								},
+								layout = wibox.layout.fixed.horizontal,
+							},
+							left  = _G.dpi(8),
+							right = _G.dpi(8),
+							widget = wibox.container.margin
 						},
-						layout = wibox.layout.fixed.horizontal,
+						bg = beautiful.wibar_bg,
+						widget = wibox.container.background,
 					},
-					left  = 8,
-					right = 8,
-					widget = wibox.container.margin
+					bottom = _G.dpi(2),
+					widget = wibox.container.margin,
 				},
 				id     = 'background_role',
 				widget = wibox.container.background,

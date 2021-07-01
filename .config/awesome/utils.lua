@@ -111,6 +111,14 @@ utils.vertical_pad = function (height)
     })
 end
 
+-- Horizontal Pad
+utils.horizontal_pad = function (width)
+    return wibox.widget({
+        forced_width = width,
+        layout = wibox.layout.fixed.horizontal
+    })
+end
+
 -- Volume Control
 utils.volume_control = function (step)
     local cmd

@@ -53,17 +53,13 @@ theme.notification_padding			= theme.screen_margin * 2
 theme.notification_spacing			= theme.screen_margin * 2
 
 theme.snap_bg = theme.bg_focus
-if theme.border_width == 0 then
-	theme.snap_border_width = _G.dpi(8)
-else
-	theme.snap_border_width = _G.dpi(theme.border_width * 2)
-end
+theme.snap_border_width = _G.dpi(0)
 
 theme.tagnames = {
-	'1',
-	'2',
-	'3',
-	'4',
+	'一',
+	'二',
+	'三',
+	'四',
 }
 
 theme.separator_text	= '|'
@@ -80,9 +76,9 @@ theme.wibar_border_radius	= _G.dpi(0)
 
 theme.prefix_fg = _G.x.color8
 
-theme.taglist_font			= 'monospace bold 10'
+theme.taglist_font			= 'umeboshi 10'
 
-theme.taglist_bg_focus		= _G.x.color0
+theme.taglist_bg_focus		= _G.x.color1
 theme.taglist_fg_focus		= _G.x.color1
 
 theme.taglist_bg_occupied	= _G.x.color0
@@ -94,7 +90,7 @@ theme.taglist_fg_urgent		= _G.x.color9
 theme.taglist_bg_empty		= _G.x.color0
 theme.taglist_fg_empty		= _G.x.color8
 
-theme.taglist_spacing		= _G.dpi(4)
+theme.taglist_spacing		= _G.dpi(0)
 theme.taglist_disable_icon	= true
 
 local taglist_square_size = _G.dpi(0)

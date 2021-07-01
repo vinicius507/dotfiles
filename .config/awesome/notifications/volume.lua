@@ -13,7 +13,7 @@ awesome.connect_signal('daemon::volume',
 			if muted then
 				message = 'muted'
 			else
-				message = tostring(percentage)
+				message = tostring(percentage) .. '%'
 			end
 
 			notif = notifications.notify({
