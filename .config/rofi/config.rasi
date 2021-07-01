@@ -1,0 +1,89 @@
+configuration {
+	font: "M +1m regular 11";
+	show-icons: true;
+	icon-theme: "Papirus-Dark";
+	display-drun: "";
+	display-run: "";
+	threads: 0;
+	scroll-method: 0;
+	disable-history: false;
+	sidebar-mode: false;
+	hide-scrollbar: true;
+	show-match: false;
+	fixed-num-lines: false;
+	modi: "window,run,ssh,drun";
+}
+
+@import "styles/colors.rasi"
+
+window {
+	children:	[ "mainbox" ];
+	width:		30%;
+	location:	center;
+	x-offset:	0;
+	y-offset:	-12%;
+}
+
+mainbox {
+	children: ["inputbar", "listview"];
+	background-color: @bg-dark;
+}
+
+inputbar {
+	children: ["prompt", "entry"];
+	background-color: @inputbar-bg;
+	padding: 8 16;
+	margin: 0 0 -2 0;
+}
+
+prompt {
+	font: "FiraCode Nerd Font Mono 16";
+	text-color: @inputbar-fg;
+	padding: 0 8 8 0;
+}
+
+entry {
+	vertical-align: 0.8;
+	placeholder: "Search";
+	text-color: @fg;
+}
+
+listview {
+	lines: 4;
+	spacing: 0;
+}
+
+element {
+	padding: 8 8;
+	background-color: @bg-normal;
+}
+
+element selected {
+	background-color: @bg-selected;
+}
+
+element-text {
+	text-color: @fg-normal;
+}
+
+element-text selected {
+	text-color: @fg-selected;
+}
+
+element active {
+	background-color: @bg-active;
+}
+
+element urgent {
+	background-color: @bg-urgent;
+}
+
+element-text {
+	vertical-align: 0.55;
+}
+
+element-icon {
+	size: 32;
+}
+
+/* vim:ft=css
