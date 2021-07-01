@@ -156,7 +156,7 @@ for i = 1, ntags do
 		awful.key({ _G.superkey, _G.altkey }, '#' .. i + 9,
 			function ()
 				local tag = client.focus.screen.tags[i]
-				local clients = awful.screeen.focused().clients
+				local clients = awful.screen.focused().clients
 				if tag then
 					for _, c in pairs(clients) do
 						c:move_to_tag(tag)
