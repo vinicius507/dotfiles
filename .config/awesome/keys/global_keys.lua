@@ -115,6 +115,50 @@ local global_keys = gears.table.join(
 			awful.layout.inc(1)
 		end,
 		{ description = 'change layout', group = 'awesome' }
+	),
+
+	-- Media Control
+	awful.key({}, 'XF86AudioMute',
+        function ()
+            utils.volume_control(0)
+        end,
+        { description = '(un)mute volume', group = 'volume' }
+	),
+    awful.key({}, 'XF86AudioLowerVolume',
+        function ()
+            utils.volume_control(-10)
+        end,
+        { description = 'lower volume', group = 'volume' }
+	),
+    awful.key({}, 'XF86AudioRaiseVolume',
+        function ()
+            utils.volume_control(10)
+        end,
+        { description = 'raise volume', group = 'volume' }
+	),
+    awful.key({}, 'XF86AudioPlay',
+        function ()
+			awful.spawn('playerctl play', false)
+        end,
+        { description = 'play player', group = 'volume' }
+	),
+    awful.key({}, 'XF86AudioStop',
+        function ()
+			awful.spawn('playerctl pause', false)
+        end,
+        { description = 'stop player', group = 'volume' }
+	),
+    awful.key({}, 'XF86AudioPrev',
+        function ()
+			awful.spawn('playerctl previous', false)
+        end,
+        { description = 'previous song', group = 'volume' }
+	),
+    awful.key({}, 'XF86AudioNext',
+        function ()
+			awful.spawn('playerctl next', false)
+        end,
+        { description = 'next song', group = 'volume' }
 	)
 )
 
