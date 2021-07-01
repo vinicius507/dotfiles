@@ -11,18 +11,20 @@ beautiful.notification_bg = '#00000000'
 local default_icon = ''
 
 local app_config = {
-	volume		= { icon = '墳', title = false },
+	discord		= { icon = 'ﭮ', title = true },
+	err			= { icon = '', title = true },
+	Firefox		= { icon = '', title = true },
 	screenshot	= { icon = '', title = false },
 	spotify		= { icon = '阮', title = true },
-	discord		= { icon = 'ﭮ', title = true },
+	volume		= { icon = '墳', title = true },
 	wpg			= { icon = '', title = false },
 }
 
 
 local urgency_color = {
-	low = _G.x.color2,
+	low = _G.x.color5,
 	normal = _G.x.color4,
-	critical = _G.x.color11,
+	critical = _G.x.color9,
 }
 
 -- Template
@@ -129,10 +131,10 @@ naughty.connect_signal('request::display',
 						},
 						layout  = wibox.layout.fixed.horizontal,
 					},
-					strategy = 'max',
-					width    = beautiful.notification_max_width or dpi(350),
-					height   = beautiful.notification_max_height or dpi(180),
-					widget   = wibox.container.constraint,
+					strategy		= 'max',
+					forced_width	= beautiful.notification_max_width or dpi(250),
+					height   		= beautiful.notification_max_height or dpi(180),
+					widget			= wibox.container.constraint,
 				},
 				shape = utils.rrect(beautiful.notification_border_radius),
 				bg = _G.x.color8,
