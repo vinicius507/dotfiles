@@ -44,6 +44,9 @@ naughty.connect_signal('request::display_error', function(message, startup)
 	})
 end)
 
+-- Daemons
+require('daemons')
+
 -- Keybindings & Mousebindings
 require('keys')
 
@@ -52,3 +55,6 @@ require('layout')
 
 -- Rules
 require('config.rules')
+
+-- Notifications
+require('notifications').init()
