@@ -23,15 +23,17 @@ notifications.notify = function (args, notif)
 	if n and not n._private.is_destroyed and not n.is_expired then
 		notif.title = args.title or notif.title
 		notif.message = args.message or notif.message
-		notif.icons = args.icon or notif.icon
+		notif.icon = args.icon or notif.icon
 		notif.timeout = args.timeout or notif.timeout
 	else
 		n = naughty.notification(args)
 	end
+	return n
 end
 
 notifications.init = function ()
 	-- Daemons
+	require('notifications.volume')
 
 	-- Load Theme
 	require('theme.notifications')
