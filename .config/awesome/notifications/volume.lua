@@ -16,7 +16,12 @@ awesome.connect_signal('daemon::volume',
 				message = tostring(percentage)
 			end
 
-			notif = notifications.notify({ title = 'Volume', message = message, app_name = 'volume', urgency = 'low' }, notif)
+			notif = notifications.notify({
+				title = 'Volume',
+				message = message,
+				app_name = 'volume',
+				urgency = 'low'
+			}, notif)
 		end
 	end
 )

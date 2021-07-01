@@ -1,0 +1,13 @@
+#!/usr/bin/env sh
+
+DEFAULT_SINK_NAME="$(pactl info | grep "Default Sink" | cut -d : -f 2)"
+SINK="$(pactl list short sinks | grep $DEFAULT_SINK_NAME | sed 's/\s\+/ /g' | cut -d ' ' -f 1)"
+
+VOLUME="$(pactl list sinks | sed -n '/#'"$SINK"'/,/\s\+Ports:/{/^\s\+Volume:/p}' | sed -nr 's/.*\s([0-9]{1,3})%.*/\1/p')"
+MUTE="$(pactl list sinks | sed -n '/#'"$SINK"'/,/\s\+Ports:/{/^\s\+Mute:/{s/.*\(yes\).*/\1/p;q}}')"
+
+if [ -z "$MUTE" ]; then
+	MUTE='no'
+fi
+
+echo "Volume: $VOLUME, Mute: $MUTE"

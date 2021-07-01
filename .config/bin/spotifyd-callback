@@ -1,0 +1,6 @@
+#!/usr/bin/env sh
+
+SONG="$(playerctl metadata | grep 'title' | sed 's/\s\+/ /g' | cut -d ' ' -f 3-)"
+ARTIST="$(playerctl metadata | grep 'artist' | head -n 1 | sed 's/\s\+/ /g' | cut -d ' ' -f 3)"
+
+echo "awesome.emit_signal('spotify::song', '$SONG', '$ARTIST')" | awesome-client
