@@ -28,7 +28,7 @@ theme.border_focus	= _G.x.color0
 theme.border_radius = _G.dpi(3)
 
 theme.titlebars_enabled			= true
-theme.title_bar_size			= _G.dpi(20)
+theme.titlebar_size				= _G.dpi(30)
 theme.titlebar_title_enabled	= true
 theme.titlebar_font				= 'FiraCode Nerd Font Medium 9'
 theme.titlebar_position			= 'top'
@@ -95,12 +95,21 @@ theme.taglist_disable_icon	= true
 
 local taglist_square_size = _G.dpi(0)
 theme.taglist_squares_sel = theme_assets.taglist_squares_sel(
-taglist_square_size, theme.fg_focus
+	taglist_square_size, theme.fg_focus
 )
 theme.taglist_squares_unsel = theme_assets.taglist_squares_sel(
-taglist_square_size, theme.fg_normal
+	taglist_square_size, theme.fg_normal
 )
 
--- TODO: titlebar icons, layout icons, icon_theme
+theme.exit_popup_fg					= _G.x.color15
+theme.exit_popup_bg					= theme.bg_normal
+theme.exit_popup_button_bg_normal	= _G.x.color8 .. 'aa'
+theme.exit_popup_button_bg_focus	= _G.x.color8
+theme.exit_popup_poweroff_color		= _G.x.color9
+theme.exit_popup_reboot_color		= _G.x.color1
+theme.exit_popup_suspend_color		= _G.x.color4
+theme.exit_popup_exit_color			= _G.x.color12
+theme.exit_popup_lock_color			= _G.x.color13
+theme.exit_popup_icon_font			= 'FiraCode Nerd Font Medium 20'
 
 return theme

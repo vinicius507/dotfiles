@@ -1,6 +1,5 @@
 local awful = require('awful')
 local ruled = require('ruled')
-local naughty = require('naughty')
 
 ruled.client.connect_signal('request::rules',
 	function ()

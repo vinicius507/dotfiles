@@ -101,14 +101,6 @@ local global_keys = gears.table.join(
 		{ description = 'restart awesome', group = 'awesome' }
 	),
 
-	-- Quit Awesome
-	awful.key({ _G.superkey, _G.shiftkey }, 'e',
-		function ()
-			awesome.quit()
-		end,
-		{ description = 'exit awesome', group = 'awesome' }
-	),
-
 	-- Layout
 	awful.key({ _G.superkey }, 'space',
 		function ()
@@ -159,6 +151,14 @@ local global_keys = gears.table.join(
 			awful.spawn('playerctl next', false)
         end,
         { description = 'next song', group = 'volume' }
+	),
+
+	-- Exit popup
+	awful.key({ _G.superkey }, 'Escape',
+		function ()
+			_G.exit_popup_show()
+		end,
+		{ description = 'open powermenu', group = 'awesome' }
 	)
 )
 

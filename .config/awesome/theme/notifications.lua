@@ -48,6 +48,7 @@ naughty.connect_signal('request::display',
 			title_visible = true
 		end
 
+		-- TODO: refactor actions
 		local actions = wibox.widget({
 			notification = n,
 			base_layout = wibox.widget({
@@ -62,15 +63,15 @@ naughty.connect_signal('request::display',
 							font = beautiful.notification_font,
 							widget = wibox.widget.textbox
 						},
-						left = dpi(6),
-						right = dpi(6),
+						left = _G.dpi(6),
+						right = _G.dpi(6),
 						widget = wibox.container.margin
 					},
 					widget = wibox.container.place
 				},
-				bg = x.color8..'32',
-				forced_height = dpi(25),
-				forced_width = dpi(70),
+				bg = _G.x.color0..'32',
+				forced_height = _G.dpi(25),
+				forced_width = _G.dpi(70),
 				widget = wibox.container.background
 			},
 			style = {
@@ -98,7 +99,7 @@ naughty.connect_signal('request::display',
 									valign = 'center',
 									widget = icon_widget,
 								},
-								forced_width = dpi(50),
+								forced_width = _G.dpi(50),
 								bg = _G.x.background,
 								widget  = wibox.container.background,
 							},
@@ -133,12 +134,12 @@ naughty.connect_signal('request::display',
 							layout  = wibox.layout.fixed.horizontal,
 						},
 						strategy	= 'min',
-						width		= beautiful.notification_max_width or dpi(270),
+						width		= beautiful.notification_max_width or _G.dpi(270),
 						widget		= wibox.container.constraint,
 					},
 					strategy	= 'max',
-					width		= beautiful.notification_max_width or dpi(270),
-					height   	= beautiful.notification_max_height or dpi(150),
+					width		= beautiful.notification_max_width or _G.dpi(270),
+					height   	= beautiful.notification_max_height or _G.dpi(150),
 					widget		= wibox.container.constraint,
 				},
 				shape = utils.rrect(beautiful.notification_border_radius),
