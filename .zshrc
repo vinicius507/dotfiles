@@ -7,8 +7,8 @@ export PATH="$HOME/.local/share/gem/ruby/3.0.0/bin:$PATH"
 export MANPAGER="nvim +Man!"
 export MANWIDTH=999
 export LIBVIRT_DEFAULT_URI="qemu:///system"
-export USER="vgoncalv"
 export BAT_THEME="TwoDark"
+export USER="Vinícius"
 
 ZSH_THEME=""
 fpath+="$HOME/.config/zsh/pure"
