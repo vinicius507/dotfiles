@@ -9,3 +9,4 @@ screen.connect_signal('request::desktop_decoration', set_panel)
 client.connect_signal("request::titlebars", set_titlebar)
 
 require('layout.exit_popup')
+require('layout.sidebar')

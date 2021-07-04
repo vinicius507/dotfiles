@@ -3,6 +3,7 @@ local theme_assets = require('beautiful.theme_assets')
 local theme = {}
 
 theme.wallpaper = os.getenv('HOME') .. '/.config/wpg/.current'
+theme.profile_picture = os.getenv('HOME') .. '/Pictures/pp.jpg'
 
 theme.font = 'FiraCode Nerd Font Medium 10'
 
@@ -12,10 +13,10 @@ theme.bg_focus		= _G.x.color8
 theme.bg_minimize	= _G.x.color8
 theme.bg_systray 	= _G.x.background
 
-theme.fg_normal		= _G.x.color8
-theme.fg_focus		= _G.x.color4
-theme.fg_urgent		= _G.x.color3
-theme.fg_minimize	= _G.x.color8
+theme.fg_normal		= _G.x.color7
+theme.fg_focus		= _G.x.color1
+theme.fg_urgent		= _G.x.color9
+theme.fg_minimize	= _G.x.color7
 
 theme.useless_gap	= _G.dpi(12)
 theme.screen_margin	= _G.dpi(16)
@@ -119,5 +120,17 @@ theme.layout_icons = {
 }
 theme.layout_icon_font	= 'FiraCode Nerd Font Medium 16'
 theme.layout_icon_color = theme.taglist_fg_focus
+
+theme.sidebar_bg			= theme.bg_focus
+theme.sidebar_fg			= theme.fg_normal
+theme.sidebar_border_radius	= _G.dpi(10)
+theme.sidebar_section_bg	= theme.bg_dark .. '44'
+theme.sidebar_title_fg		= theme.fg_normal
+theme.sidebar_opacity		= 1
+theme.sidebar_width			= _G.dpi(300)
+theme.sidebar_position		= 'left'
+theme.sidebar_title_font	= 'FiraCode Nerd Font Medium 10'
+theme.sidebar_profile_font	= 'FiraCode Nerd Font Medium 12'
+theme.sidebar_clock_font	= 'M+ 1m regular 36'
 
 return theme

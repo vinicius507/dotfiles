@@ -103,6 +103,13 @@ utils.rrect = function(radius)
     end
 end
 
+-- Partial Rounded Rectangle
+utils.prrect = function(radius, tl, tr, br, bl)
+    return function(cr, width, height)
+        gears.shape.partially_rounded_rect(cr, width, height, tl, tr, br, bl, radius)
+    end
+end
+
 -- Vertical Pad
 utils.vertical_pad = function (height)
     return wibox.widget({
