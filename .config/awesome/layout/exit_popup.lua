@@ -15,6 +15,7 @@ local reboot_command = function ()
 end
 
 local suspend_command = function ()
+	_G.exit_popup_hide()
 	awful.spawn.with_shell('systemctl suspend')
 end
 
@@ -23,12 +24,14 @@ local exit_command = function ()
 end
 
 local lock_command = function ()
+	require('naughty').notify({ title = 'Command not found', message = 'Lock command missing', app_name = 'err' })
+	_G.exit_popup_hide()
 end
 
 local icons = {
 	poweroff	= '襤',
-	reboot		= 'ﰇ',
-	suspend		= '鈴',
+	reboot		= '勒',
+	suspend		= '⏾',
 	exit		= '',
 	lock		= '',
 }
@@ -41,22 +44,17 @@ local base_button = function (id, action)
 		{
 			{
 				{
-					{
-						markup	= utils.colorize_text(icon, icon_color),
-						font	= beautiful.exit_popup_icon_font,
-						widget	= wibox.widget.textbox,
-						align = 'center',
-					},
-					forced_width = _G.dpi(30),
-					bg = '#00000000',
-					widget  = wibox.container.background,
+					markup	= utils.colorize_text(icon, icon_color),
+					font	= beautiful.exit_popup_icon_font,
+					widget	= wibox.widget.textbox,
+					align = 'center',
 				},
-				layout = wibox.layout.align.horizontal,
-				expand = 'none',
+				forced_width = _G.dpi(47),
+				bg = '#00000000',
+				widget  = wibox.container.background,
 			},
-			widget = wibox.container.margin,
-			left = _G.dpi(8),
-			right = _G.dpi(8),
+			layout = wibox.layout.align.horizontal,
+			expand = 'none',
 		},
 		bg		= beautiful.exit_popup_button_bg_normal,
 		shape	= utils.rrect(2),
@@ -109,7 +107,7 @@ awful.placement.centered(popup, { honor_workarea = true })
 popup:buttons(gears.table.join(
 	awful.button({}, 3,
 		function ()
-			popup.visible = false
+			_G.exit_popup_hide()
 		end
 	)
 ))
@@ -155,10 +153,40 @@ popup:setup({
 	layout	= wibox.layout.align.vertical,
 })
 
+-- Keygrabber
+local keys = {
+	Escape	= function () _G.exit_popup_hide() end,
+	e		= function () exit_command() end,
+	l		= function () lock_command() end,
+	p		= function () poweroff_command() end,
+	q		= function () _G.exit_popup_hide() end,
+	r		= function () reboot_command() end,
+	s		= function () suspend_command() end,
+}
+
+local parse = function (_, stop_key, _, _)
+	if keys[stop_key] then
+		keys[stop_key]()
+	end
+end
+
+local keygrabber = awful.keygrabber({
+	stop_callback		= parse,
+	stop_key			= {
+		'Escape', 'e', 'l',
+		'p', 'q', 'r', 's',
+	},
+	mask_modkeys		= true,
+})
+
+-- Popup functions
+
 _G.exit_popup_show = function ()
+	keygrabber:start()
 	popup.visible = true
 end
 
 _G.exit_popup_hide = function ()
+	keygrabber:stop()
 	popup.visible = false
 end
