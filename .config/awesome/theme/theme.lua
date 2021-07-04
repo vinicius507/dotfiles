@@ -112,4 +112,12 @@ theme.exit_popup_exit_color			= _G.x.color12
 theme.exit_popup_lock_color			= _G.x.color13
 theme.exit_popup_icon_font			= 'FiraCode Nerd Font Medium 20'
 
+theme.layout_icons = {
+	dwindle 	= '﩯',
+	floating	= '缾',
+	max			= '',
+}
+theme.layout_icon_font	= 'FiraCode Nerd Font Medium 16'
+theme.layout_icon_color = theme.taglist_fg_focus
+
 return theme

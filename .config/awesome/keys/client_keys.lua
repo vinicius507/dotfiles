@@ -84,7 +84,7 @@ local client_keys = gears.table.join(
 	-- Promote to master
 	awful.key({ _G.superkey, _G.ctrlkey }, 'Return',
 		function(c)
-			c:swap(awful.c.getmaster())
+			c:swap(awful.client.getmaster())
 		end,
 		{description = 'promote to master', group = 'client' }
 	),

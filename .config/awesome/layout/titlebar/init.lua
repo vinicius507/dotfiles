@@ -1,8 +1,18 @@
 local awful = require('awful')
+local gears = require('gears')
 local beautiful = require('beautiful')
 local wibox = require('wibox')
 
-local titlebar_buttons = require('keys.titlebar_buttons')
+local titlebar_buttons = function (c)
+	return gears.table.join(
+		awful.button({ }, 1, function ()
+			c:activate { context = "titlebar", action = "mouse_move", raise = true  }
+		end),
+		awful.button({ }, 3, function ()
+			c:activate { context = "titlebar", action = "mouse_resize"}
+		end)
+	)
+end
 
 local titlebar = function (c)
 	local t = awful.titlebar(c, {font = beautiful.titlebar_font, position = beautiful.titlebar_position, size = beautiful.titlebar_size})
