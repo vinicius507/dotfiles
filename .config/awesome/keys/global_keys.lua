@@ -159,6 +159,20 @@ local global_keys = gears.table.join(
 			_G.exit_popup_show()
 		end,
 		{ description = 'open powermenu', group = 'awesome' }
+	),
+
+	-- Screenshots
+	awful.key({}, 'Print',
+		function ()
+			awful.spawn(apps.screenshot, false)
+		end,
+		{ description = 'take a screenshot of a section of the screen', group = 'screenshot' }
+	),
+	awful.key({ _G.shiftkey }, 'Print',
+		function ()
+			awful.spawn(apps.screenshot_full, false)
+		end,
+		{ description = 'take a screenshot of the screen', group = 'screenshot' }
 	)
 )
 

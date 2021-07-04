@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+
+OPTION="$1"
+DEST="$HOME/Pictures/Screenshots"
+IMG="$DEST/$(date +%s).png"
+
+if [[ ! -d $DEST ]]; then
+	mkdir -p $DEST
+fi
+
+case $OPTION in
+	section)
+		maim -s $IMG &
+		;;
+	full)
+		maim $IMG &
+		;;
+esac
+
+sleep 0.2
+if [[ -f $IMG ]]; then
+	cat $IMG | xclip -selection clipboard -t image/png
+	echo "require('naughty').notification({ title = 'Screenshot', message = 'Screenshot taken.', app_name = 'screenshot', })" | awesome-client
+fi
