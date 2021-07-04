@@ -1,10 +1,24 @@
 local awful = require('awful')
+local gears = require('gears')
 local beautiful = require('beautiful')
 local wibox = require('wibox')
 
 local utils = require('utils')
 
 local l = beautiful.layout_icons
+
+local layout_buttons = gears.table.join(
+	awful.button({}, 1,
+		function ()
+			awful.layout.inc(1)
+		end
+	),
+	awful.button({}, 3,
+		function ()
+			awful.layout.inc(-1)
+		end
+	)
+)
 
 local mytaglayout = function (s)
 	local t	= s.selected_tag
@@ -21,8 +35,10 @@ local mytaglayout = function (s)
 			font	= beautiful.layout_icon_font,
 		},
 		widget			= wibox.container.background,
-		forced_width	= _G.dpi(30),
+		forced_width	= _G.dpi(40),
 	})
+
+	layout:buttons(layout_buttons)
 
 	t:connect_signal('property::layout',
 		function (_)
