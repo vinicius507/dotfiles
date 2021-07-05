@@ -3,9 +3,9 @@ local beautiful = require('beautiful')
 local wibox = require('wibox')
 
 local clock = wibox.widget({
-	widget = wibox.container.margin,
-	top = _G.dpi(14),
-	bottom = _G.dpi(12)
+	widget	= wibox.container.margin,
+	top		= _G.dpi(14),
+	bottom	= _G.dpi(10),
 })
 
 clock:setup({
@@ -17,8 +17,8 @@ clock:setup({
 		valign	= 'center',
 	},
 	{
-		text = '',
-		widget = wibox.widget.textbox,
+		text	= '',
+		widget	= wibox.widget.textbox,
 	},
 	{
 		format	= '%M',

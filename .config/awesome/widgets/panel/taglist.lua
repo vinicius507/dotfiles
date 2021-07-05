@@ -36,8 +36,8 @@ local taglist_buttons = gears.table.join(
 	)
 )
 
-local mytaglist = function (s)
-	local taglist = awful.widget.taglist({
+local taglist = function (s)
+	local list = awful.widget.taglist({
 		screen = s,
 		filter  = awful.widget.taglist.filter.all,
 		buttons = taglist_buttons,
@@ -70,7 +70,7 @@ local mytaglist = function (s)
 		},
 	})
 
-	return taglist
+	return list
 end
 
-return mytaglist
+return taglist

@@ -9,45 +9,11 @@ local wibox = require('wibox')
 local utils	= require('utils')
 
 -- Widgets
-local section_base = function (args)
-	local section = wibox.widget({
-		right	= _G.dpi(20),
-		left	= _G.dpi(20),
-		top		= _G.dpi(10),
-		widget	= wibox.container.margin,
-	})
-
-	local title = args.title and wibox.widget({
-		{
-			markup	= utils.colorize_text(args.title, beautiful.sidebar_title_fg),
-			align	= beautiful.sidebar_position,
-			widget	= wibox.widget.textbox,
-			font	= beautiful.sidebar_title_font,
-		},
-		top		= _G.dpi(8),
-		left	= _G.dpi(8),
-		right	= _G.dpi(8),
-		widget	= wibox.container.margin,
-	}) or nil
-
-	section:setup({
-		{
-			title,
-			args.widget,
-			layout	= wibox.layout.fixed.vertical,
-		},
-		bg		= beautiful.sidebar_section_bg,
-		shape	= utils.rrect(_G.dpi(5)),
-		widget	= wibox.container.background,
-	})
-
-	return section
-end
-
-local profile = require('layout.sidebar.profile')
-local clock = require('layout.sidebar.clock')
+local section_base = require('widgets.sidebar.section')
+local profile = require('widgets.sidebar.profile')
+local clock = require('widgets.sidebar.clock')
 local clock_section = section_base({ widget = clock })
-local hardware = require('layout.sidebar.hardware')
+local hardware = require('widgets.sidebar.hardware')
 local hardware_section = section_base({ title = 'Hardware',widget = hardware })
 
 -- Sidebar
@@ -55,29 +21,39 @@ local sidebar = wibox({ visible = false, ontop = true, type = 'dock', screen = m
 sidebar.fg = beautiful.sidebar_fg or beautiful.wibar_fg or '#FFFFFF'
 sidebar.bg = '#00000000'
 sidebar.opacity = beautiful.sidebar_opacity or 1
-sidebar.height = screen.primary.geometry.height * 0.67
+sidebar.height = screen.primary.geometry.height
 sidebar.width = beautiful.sidebar_width or _G.dpi(300)
 local radius = beautiful.sidebar_border_radius or 0
 
-local placement, shape
+local placement
 if beautiful.sidebar_position == 'right' then
 	placement = (awful.placement.right)
-	shape = utils.prrect(radius, true, false, false, true)
 else
 	placement = (awful.placement.left)
-	shape = utils.prrect(radius, false, true, true, false)
 end
 
 placement(sidebar)
 
+sidebar:buttons(gears.table.join(
+	awful.button({}, 3,
+		function ()
+			_G.hide_sidebar()
+		end
+	)
+))
+
 sidebar:setup({
 	{
-		profile,
-		clock_section,
-		hardware_section,
-		layout	= wibox.layout.fixed.vertical,
+		{
+			profile,
+			clock_section,
+			hardware_section,
+			layout	= wibox.layout.fixed.vertical,
+		},
+		widget	= wibox.container.margin,
+		top		= _G.dpi(20),
+		bottom	= _G.dpi(20),
 	},
-	shape	= shape,
 	bg		= beautiful.sidebar_bg,
 	widget	= wibox.container.background,
 })

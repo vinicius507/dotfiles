@@ -33,13 +33,11 @@ end
 
 notifications.init = function ()
 	-- Daemons
-	require('notifications.volume')
-	require('notifications.spotify')
+	require('config.notifications.volume')
+	require('config.notifications.spotify')
 
 	-- Load Theme
 	require('theme.notifications')
 end
-
--- TODO: handle notification icon
 
 return notifications

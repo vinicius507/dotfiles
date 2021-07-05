@@ -1,4 +1,4 @@
-local notifications = require('notifications')
+local notifications = require('config.notifications')
 
 local notif
 local first_time = true

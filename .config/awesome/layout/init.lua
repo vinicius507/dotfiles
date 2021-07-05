@@ -6,7 +6,7 @@ local set_titlebar = require('layout.titlebar')
 tag.connect_signal('request::default_layouts', set_layouts)
 screen.connect_signal('request::wallpaper', set_wallpaper)
 screen.connect_signal('request::desktop_decoration', set_panel)
-client.connect_signal("request::titlebars", set_titlebar)
+client.connect_signal('request::titlebars', set_titlebar)
 
 require('layout.exit_popup')
 require('layout.sidebar')
