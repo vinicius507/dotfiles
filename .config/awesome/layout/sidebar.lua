@@ -3,11 +3,6 @@ local gears = require('gears')
 local beautiful = require('beautiful')
 local wibox = require('wibox')
 
--- local config = require('config')
--- local user = config.user
--- local apps = config.apps
-local utils	= require('utils')
-
 -- Widgets
 local section_base = require('widgets.sidebar.section')
 local profile = require('widgets.sidebar.profile')
@@ -23,7 +18,6 @@ sidebar.bg = '#00000000'
 sidebar.opacity = beautiful.sidebar_opacity or 1
 sidebar.height = screen.primary.geometry.height
 sidebar.width = beautiful.sidebar_width or _G.dpi(300)
-local radius = beautiful.sidebar_border_radius or 0
 
 local placement
 if beautiful.sidebar_position == 'right' then

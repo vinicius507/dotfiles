@@ -15,7 +15,7 @@ local app_config = {
 	err			= { icon = '', title = true },
 	Firefox		= { icon = '', title = true },
 	screenshot	= { icon = '', title = false },
-	spotify		= { icon = '阮', title = true },
+	Spotify		= { icon = '阮', title = true },
 	volume		= { icon = '墳', title = true },
 	wpg			= { icon = '', title = false },
 }
@@ -30,12 +30,7 @@ local urgency_color = {
 -- Template
 naughty.connect_signal('request::display',
 	function (n)
-		local icon_widget = wibox.widget({
-			font = 'FiraCode Nerd Font Mono 24',
-			align = 'center',
-			valign = 'center',
-			widget = wibox.widget.textbox
-		})
+		local icon_widget = require('widgets.notifications.icon')
 
 		local icon, title_visible
 		local color = urgency_color[n.urgency]
@@ -48,38 +43,7 @@ naughty.connect_signal('request::display',
 			title_visible = true
 		end
 
-		-- TODO: refactor actions
-		local actions = wibox.widget({
-			notification = n,
-			base_layout = wibox.widget({
-				spacing = _G.dpi(3),
-				layout = wibox.layout.flex.horizontal,
-			}),
-			widget_template = {
-				{
-					{
-						{
-							id = 'text_role',
-							font = beautiful.notification_font,
-							widget = wibox.widget.textbox
-						},
-						left = _G.dpi(6),
-						right = _G.dpi(6),
-						widget = wibox.container.margin
-					},
-					widget = wibox.container.place
-				},
-				bg = _G.x.color0..'32',
-				forced_height = _G.dpi(25),
-				forced_width = _G.dpi(70),
-				widget = wibox.container.background
-			},
-			style = {
-				underline_normal = false,
-				underline_selected = true,
-			},
-			widget = naughty.list.actions
-		})
+		local actions = require('widgets.notifications.actions')(n)
 
 		naughty.layout.box({
 			notification = n,
