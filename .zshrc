@@ -16,9 +16,9 @@ fpath+="$HOME/.config/zsh/pure"
 plugins=(
 	git
 	asdf
-	#zsh-autosuggestions
+	zsh-autosuggestions
 	ssh-agent
-	#zsh-syntax-highlighting
+	zsh-syntax-highlighting
 )
 
 source $ZSH/oh-my-zsh.sh

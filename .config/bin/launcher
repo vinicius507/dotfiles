@@ -8,7 +8,7 @@ case "$OPTION" in
 		rofi -config "$CONFIG" -show drun -matching fuzzy
 		;;
 	run)
-		rofi -config "$CONFIG" -show run -theme-str 'window { location: north; anchor: north; y-offset: 35; x-offset: 0; } mainbox { children: ["inputbar"]; } inputbar { background-color: @bg-dark; } prompt { padding: 0 8 10 0; } entry { placeholder: "Run"; vertical-align: 0.6; }'
+		rofi -config "$CONFIG" -show run -theme-str 'window { location: north; anchor: north; y-offset: 35; x-offset: 0; width: 20%; } mainbox { children: ["inputbar"]; } inputbar { background-color: @bg-dark; } prompt { padding: 0 8 10 0; } entry { placeholder: "Run"; vertical-align: 0.6; }'
 		;;
 	*)
 		;;

@@ -18,10 +18,10 @@ configuration {
 
 window {
 	children:	[ "mainbox" ];
-	width:		30%;
+	width:		28%;
 	location:	center;
 	x-offset:	0;
-	y-offset:	-12%;
+	y-offset:	-8%;
 }
 
 mainbox {
