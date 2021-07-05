@@ -6,6 +6,7 @@ local utils = require('utils')
 
 local user = require('config').user
 local apps = require('config').apps
+local scratchpads = require('config.scratchpads')
 
 local global_keys = gears.table.join(
 	-- Navigation
@@ -173,6 +174,15 @@ local global_keys = gears.table.join(
 			awful.spawn(apps.screenshot_full, false)
 		end,
 		{ description = 'take a screenshot of the screen', group = 'screenshot' }
+	),
+
+	-- Scratchpads
+	-- Termpad
+	awful.key({ _G.superkey }, 'z',
+		function ()
+			scratchpads.terminal:toggle()
+		end,
+		{ description = 'toggles terminal scratchpad', group = 'scratchpad' }
 	)
 )
 

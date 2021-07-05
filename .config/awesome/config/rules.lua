@@ -6,7 +6,7 @@ ruled.client.connect_signal('request::rules',
 		-- Global Rules
 		ruled.client.append_rule {
 			id         = 'global',
-			rule       = { },
+			rule       = {},
 			properties = {
 				focus		= awful.client.focus.filter,
 				raise		= true,
@@ -19,7 +19,7 @@ ruled.client.connect_signal('request::rules',
 		ruled.client.append_rule {
 			id       = 'floating',
 			rule_any = {
-				instance	= { },
+				instance	= {},
 				class		= {
 					'Lxappearance',
 					'Pavucontrol',
@@ -44,12 +44,12 @@ ruled.client.connect_signal('request::rules',
 		ruled.client.append_rule {
 			id			= 'sticky',
 			rule_any	= {
-				instance	= { },
-				class		= { },
+				instance	= {},
+				class		= {},
 				name		= {
 					'Picture-in-Picture',
 				},
-				role		= { },
+				role		= {},
 			},
 			properties	= { ontop = true, floating = true, sticky = true }
 		}
@@ -60,13 +60,24 @@ ruled.client.connect_signal('request::rules',
 			rule_any   = { type = { 'normal', 'dialog' } },
 			properties = { titlebars_enabled = true }
 		}
+
+		-- Scratchpads
+		ruled.client.append_rule {
+			id			= 'scratchpads',
+			rule_any	= {
+				instance = {
+					'termpad',
+				},
+			},
+			properties	= { floating = true },
+		}
 	end
 )
 
 ruled.notification.connect_signal('request::rules',
 	function ()
 		ruled.notification.append_rule {
-			rule       = { },
+			rule       = {},
 			properties = {
 				screen           = awful.screen.preferred,
 				implicit_timeout = 5,
