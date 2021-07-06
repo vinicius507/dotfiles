@@ -4,12 +4,10 @@ local beautiful = require('beautiful')
 local wibox = require('wibox')
 
 -- Widgets
-local section_base = require('widgets.sidebar.section')
-local profile = require('widgets.sidebar.profile')
-local clock = require('widgets.sidebar.clock')
-local clock_section = section_base({ widget = clock })
-local hardware = require('widgets.sidebar.hardware')
-local hardware_section = section_base({ title = 'Hardware',widget = hardware })
+local profile		= require('widgets.sidebar.profile')
+local clock			= require('widgets.sidebar.clock')
+local calendar		= require('widgets.sidebar.calendar')
+local hardware		= require('widgets.sidebar.hardware')
 
 -- Sidebar
 local sidebar = wibox({ visible = false, ontop = true, type = 'dock', screen = mouse.screen })
@@ -40,8 +38,9 @@ sidebar:setup({
 	{
 		{
 			profile,
-			clock_section,
-			hardware_section,
+			clock,
+			calendar,
+			hardware,
 			layout	= wibox.layout.fixed.vertical,
 		},
 		widget	= wibox.container.margin,

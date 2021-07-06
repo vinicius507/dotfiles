@@ -2,6 +2,8 @@ local awful = require('awful')
 local beautiful = require('beautiful')
 local wibox = require('wibox')
 
+local section = require('widgets.sidebar.section')
+
 local clock = wibox.widget({
 	widget	= wibox.container.margin,
 	top		= _G.dpi(14),
@@ -32,4 +34,4 @@ clock:setup({
 	layout = wibox.layout.align.horizontal,
 })
 
-return clock
+return section({ widget = clock })

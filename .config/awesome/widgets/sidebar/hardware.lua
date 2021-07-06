@@ -2,10 +2,12 @@ local wibox = require('wibox')
 
 local utils = require('utils')
 
-local hardware_section = function (section)
+local section = require('widgets.sidebar.section')
+
+local hardware_section = function (part)
 	local radial = wibox.widget({
 		{
-			text			= section:upper(),
+			text			= part:upper(),
 			widget			= wibox.widget.textbox,
 			align			= 'center',
 			forced_width	= _G.dpi(50),
@@ -33,7 +35,7 @@ local hardware_section = function (section)
 		layout	= wibox.layout.fixed.horizontal,
 	})
 
-	awesome.connect_signal('daemon::'..section,
+	awesome.connect_signal('daemon::'..part,
 		function (value, title)
 			text.markup = utils.colorize_text(title, _G.x.color7)
 			radial.value = value
@@ -58,10 +60,9 @@ hardware:setup({
 	cpu,
 	ram,
     forced_num_cols = 2,
-    -- forced_num_rows = 2,
     homogeneous     = true,
     expand          = true,
     layout = wibox.layout.grid
 })
 
-return hardware
+return section({ title = 'Hardware',widget = hardware })
