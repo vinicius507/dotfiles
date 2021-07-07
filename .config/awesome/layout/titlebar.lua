@@ -18,14 +18,26 @@ local titlebar = function (c)
 	local t = awful.titlebar(c, {font = beautiful.titlebar_font, position = beautiful.titlebar_position, size = beautiful.titlebar_size})
 
 	t:setup({
-		nil,
-        {
-            buttons = titlebar_buttons(c),
-            font = beautiful.titlebar_font,
-            align = beautiful.titlebar_title_align or 'center',
-            widget = beautiful.titlebar_title_enabled and awful.titlebar.widget.titlewidget(c) or wibox.widget.textbox("")
-        },
-        layout = wibox.layout.align.horizontal
+		{
+			{
+				{
+					text	= '',
+					widget	= wibox.widget.textbox,
+				},
+				forced_width	= _G.dpi(12),
+				widget			= wibox.container.background,
+			},
+			{
+				font	= beautiful.titlebar_font,
+				align	= beautiful.titlebar_title_align or 'center',
+				widget	= beautiful.titlebar_title_enabled and awful.titlebar.widget.titlewidget(c) or wibox.widget.textbox("")
+			},
+			layout = wibox.layout.align.horizontal
+		},
+		buttons	= titlebar_buttons(c),
+		widget	= wibox.container.margin,
+		left	= _G.dpi(8),
+		right	= _G.dpi(8),
     })
 end
 

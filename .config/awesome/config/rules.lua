@@ -64,13 +64,34 @@ ruled.client.connect_signal('request::rules',
 
 		-- Scratchpads
 		ruled.client.append_rule({
-			id			= 'scratchpads',
+			id			= 'termpad',
 			rule_any	= {
 				instance = {
 					'termpad',
 				},
 			},
-			properties	= { floating = true },
+			properties	= {
+				floating				= true,
+				placement				= awful.placement.center_horizontal,
+				maximized_horizontal	= true,
+				hidden					= true,
+			},
+		})
+
+		ruled.client.append_rule({
+			id			= 'ncmpcpp',
+			rule_any	= {
+				instance = {
+					'ncmpcpp',
+				},
+			},
+			properties	= {
+				titlebars_enabled		= false,
+				floating				= true,
+				placement				= awful.placement.centered,
+				maximized_horizontal	= true,
+				hidden					= true,
+			},
 		})
 	end
 )
@@ -80,8 +101,12 @@ ruled.notification.connect_signal('request::rules',
 		ruled.notification.append_rule({
 			rule       = {},
 			properties = {
-				screen           = awful.screen.preferred,
-				implicit_timeout = 5,
+				screen           	= awful.screen.preferred,
+				implicit_timeout	= 5,
+				x					= _G.screen_width * 0.3,
+				y					= _G.screen_height * 0.3,
+				height				= _G.screen_height * 0.4,
+				width				= _G.screen_width * 0.4,
 			}
 		})
 	end

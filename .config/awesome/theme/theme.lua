@@ -33,9 +33,12 @@ theme.titlebar_size				= _G.dpi(30)
 theme.titlebar_title_enabled	= true
 theme.titlebar_font				= 'FiraCode Nerd Font Medium 9'
 theme.titlebar_position			= 'top'
-theme.titlebar_bg_normal		= _G.x.color0
+theme.titlebar_bg_normal		= _G.x.color8
 theme.titlebar_bg_focus			= _G.x.color8
-theme.titlebar_fg				= _G.x.color7
+theme.titlebar_bg_urgent		= _G.x.color8
+theme.titlebar_fg_normal		= _G.x.color7
+theme.titlebar_fg_focus			= _G.x.color12
+theme.titlebar_fg_urgent		= _G.x.color9
 
 theme.notification_position			= 'top_right'
 theme.notification_border_width		= _G.dpi(0)
@@ -79,8 +82,8 @@ theme.prefix_fg = _G.x.color8
 
 theme.taglist_font			= 'umeboshi 10'
 
-theme.taglist_bg_focus		= _G.x.color1
-theme.taglist_fg_focus		= _G.x.color1
+theme.taglist_bg_focus		= _G.x.color12
+theme.taglist_fg_focus		= _G.x.color12
 
 theme.taglist_bg_occupied	= _G.x.color0
 theme.taglist_fg_occupied	= _G.x.color7
@@ -118,6 +121,7 @@ theme.layout_icons = {
 	floating	= '缾',
 	max			= '',
 }
+
 theme.layout_icon_font	= 'FiraCode Nerd Font Medium 16'
 theme.layout_icon_color = theme.taglist_fg_focus
 

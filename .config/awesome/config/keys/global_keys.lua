@@ -183,6 +183,13 @@ local global_keys = gears.table.join(
 			scratchpads.terminal:toggle()
 		end,
 		{ description = 'toggles terminal scratchpad', group = 'scratchpad' }
+	),
+	-- Ncmpcpp
+	awful.key({ _G.superkey }, '\'',
+		function ()
+			scratchpads.ncmpcpp:toggle()
+		end,
+		{ description = 'toggles terminal scratchpad', group = 'scratchpad' }
 	)
 )
 

@@ -16,6 +16,7 @@ local app_config = {
 	Firefox		= { icon = '', title = true },
 	screenshot	= { icon = '', title = false },
 	Spotify		= { icon = '阮', title = true },
+	player		= { icon = '', title = true },
 	volume		= { icon = '墳', title = true },
 	wpg			= { icon = '', title = false },
 }

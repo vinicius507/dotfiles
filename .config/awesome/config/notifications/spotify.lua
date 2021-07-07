@@ -1,21 +1,13 @@
 local notifications = require('config.notifications')
 
 local notif
-local first_time = true
 
-awesome.connect_signal('spotify::song',
-	function (song, artist)
-		-- Send notification
-		if first_time then
-			first_time = false
-		else
-			local message = song .. ' - ' .. artist
-			notif = notifications.notify({
-				title = 'Now Playing',
-				message = message,
-				app_name = 'spotify',
-				urgency = 'low'
-			}, notif)
-		end
+awesome.connect_signal('bling::playerctl::title_artist_album',
+	function (title, artist, _, player)
+		notif = notifications.notify({
+			title		= title,
+			message		= artist,
+			app_name	= player == 'mopidy' and 'Spotify' or 'player'
+		}, notif)
 	end
 )
