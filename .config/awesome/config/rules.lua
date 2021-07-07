@@ -144,3 +144,12 @@ awesome.connect_signal('panel::visible',
 		end
 	end
 )
+
+-- Jump to urgent clients
+client.connect_signal('property::urgent',
+	function (c)
+		if c.urgent then
+			c:jump_to()
+		end
+	end
+)
