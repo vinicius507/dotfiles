@@ -7,6 +7,7 @@ local utils = require('utils')
 
 local l = beautiful.layout_icons
 
+-- FIX: gotta fix this
 local layout_buttons = gears.table.join(
 	awful.button({}, 1,
 		function ()
@@ -42,7 +43,7 @@ local mytaglayout = function (s)
 
 	t:connect_signal('property::layout',
 		function (_)
-			icon = l[awful.layout.getname(t.layout)] or 'blah'
+			icon = l[awful.layout.getname(t.layout)] or 'N/A'
 			layout:get_children_by_id('icon_role')[1].markup = utils.colorize_text(icon, _G.x.color1)
 		end
 	)
