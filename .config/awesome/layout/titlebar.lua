@@ -14,30 +14,33 @@ local titlebar_buttons = function (c)
 	)
 end
 
+local mx, my = _G.dpi(8), _G.dpi(8)
+local t_layout = wibox.layout.align.vertical
+if beautiful.titlebar_position == 'top' or beautiful.titlebar_position == 'bottom' then
+	t_layout = wibox.layout.align.horizontal
+	my = _G.dpi(0)
+end
+
+
 local titlebar = function (c)
 	local t = awful.titlebar(c, {font = beautiful.titlebar_font, position = beautiful.titlebar_position, size = beautiful.titlebar_size})
 
 	t:setup({
 		{
-			{
-				{
-					text	= '',
-					widget	= wibox.widget.textbox,
-				},
-				forced_width	= _G.dpi(12),
-				widget			= wibox.container.background,
-			},
+			nil,
 			{
 				font	= beautiful.titlebar_font,
 				align	= beautiful.titlebar_title_align or 'center',
-				widget	= beautiful.titlebar_title_enabled and awful.titlebar.widget.titlewidget(c) or wibox.widget.textbox("")
+				widget	= beautiful.titlebar_title_enabled and awful.titlebar.widget.titlewidget(c) or wibox.widget.textbox('')
 			},
-			layout = wibox.layout.align.horizontal
+			layout	= t_layout
 		},
 		buttons	= titlebar_buttons(c),
 		widget	= wibox.container.margin,
-		left	= _G.dpi(8),
-		right	= _G.dpi(8),
+		left	= mx,
+		right	= mx,
+		top		= my,
+		bottom	= my,
     })
 end
 
