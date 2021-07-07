@@ -39,7 +39,6 @@ local button = function (id, action)
 	})
 
 	local old_cursor, old_wibox
-
 	b:connect_signal('mouse::enter',
 		function(c)
 			c:set_bg(beautiful.exit_popup_button_bg_focus)

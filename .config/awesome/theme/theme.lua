@@ -123,7 +123,7 @@ theme.layout_icon_color = theme.taglist_fg_focus
 
 theme.sidebar_bg			= theme.bg_dark
 theme.sidebar_fg			= theme.fg_normal
-theme.sidebar_border_radius	= _G.dpi(10)
+theme.sidebar_border_radius	= _G.dpi(5)
 theme.sidebar_section_bg	= theme.bg_focus .. '66'
 theme.sidebar_title_fg		= theme.fg_normal .. '55'
 theme.sidebar_opacity		= 1

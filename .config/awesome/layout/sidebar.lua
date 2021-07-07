@@ -3,25 +3,31 @@ local gears = require('gears')
 local beautiful = require('beautiful')
 local wibox = require('wibox')
 
+local utils = require('utils')
+
 -- Widgets
 local profile		= require('widgets.sidebar.profile')
 local clock			= require('widgets.sidebar.clock')
-local calendar		= require('widgets.sidebar.calendar')
+-- local calendar		= require('widgets.sidebar.calendar')
 local hardware		= require('widgets.sidebar.hardware')
+local playerctl		= require('widgets.sidebar.playerctl')
 
 -- Sidebar
 local sidebar = wibox({ visible = false, ontop = true, type = 'dock', screen = mouse.screen })
 sidebar.fg = beautiful.sidebar_fg or beautiful.wibar_fg or '#FFFFFF'
 sidebar.bg = '#00000000'
 sidebar.opacity = beautiful.sidebar_opacity or 1
-sidebar.height = screen.primary.geometry.height
+sidebar.height = screen.primary.geometry.height * 0.7
 sidebar.width = beautiful.sidebar_width or _G.dpi(300)
+local radius = beautiful.sidebar_border_radius or _G.dpi(3)
 
-local placement
+local placement, sidebar_shape
 if beautiful.sidebar_position == 'right' then
 	placement = (awful.placement.right)
+	sidebar_shape = utils.prrect(radius, true, false, false, true)
 else
 	placement = (awful.placement.left)
+	sidebar_shape = utils.prrect(radius, false, true, true, false)
 end
 
 placement(sidebar)
@@ -39,7 +45,8 @@ sidebar:setup({
 		{
 			profile,
 			clock,
-			calendar,
+			-- calendar,
+			playerctl,
 			hardware,
 			layout	= wibox.layout.fixed.vertical,
 		},
@@ -49,6 +56,7 @@ sidebar:setup({
 	},
 	bg		= beautiful.sidebar_bg,
 	widget	= wibox.container.background,
+	shape	= sidebar_shape
 })
 
 sidebar:connect_signal('mouse::leave',

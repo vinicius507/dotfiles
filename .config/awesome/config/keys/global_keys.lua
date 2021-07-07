@@ -131,13 +131,13 @@ local global_keys = gears.table.join(
 	),
     awful.key({}, 'XF86AudioPlay',
         function ()
-			awful.spawn('playerctl play', false)
+			awful.spawn('playerctl play-pause', false)
         end,
         { description = 'play player', group = 'volume' }
 	),
     awful.key({}, 'XF86AudioStop',
         function ()
-			awful.spawn('playerctl pause', false)
+			awful.spawn('playerctl stop', false)
         end,
         { description = 'stop player', group = 'volume' }
 	),
