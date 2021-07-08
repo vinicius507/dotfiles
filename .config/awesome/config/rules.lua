@@ -38,7 +38,13 @@ ruled.client.connect_signal('request::rules',
 					'pop-up',
 				}
 			},
-			properties		= { floating = true, placement = awful.placement.centered }
+			properties		= {
+				floating			= true,
+				titlebars_enabled	= true,
+				width				= _G.screen_width * 0.8,
+				height				= _G.screen_height * 0.8,
+				placement			= awful.placement.centered
+			}
 		})
 
 		-- Sticky Clients.
@@ -56,11 +62,11 @@ ruled.client.connect_signal('request::rules',
 		})
 
 		-- Add titlebars to normal clients and dialogs
-		ruled.client.append_rule({
-			id         = 'titlebars',
-			rule_any   = { type = { 'normal', 'dialog' } },
-			properties = { titlebars_enabled = true }
-		})
+		-- ruled.client.append_rule({
+		-- 	id         = 'titlebars',
+		-- 	rule_any   = { type = { 'normal', 'dialog' } },
+		-- 	properties = { titlebars_enabled = true }
+		-- })
 
 		-- Scratchpads
 		ruled.client.append_rule({
@@ -150,6 +156,19 @@ client.connect_signal('property::urgent',
 	function (c)
 		if c.urgent then
 			c:jump_to()
+		end
+	end
+)
+
+-- Toggle titlebar on windows state
+client.connect_signal('property::floating',
+	function (c)
+		if c.floating and c.class ~= 'ncmpcpp' then
+			awful.titlebar.show(c)
+			c:geometry({ width = _G.screen_width * 0.8, height = _G.screen_height * 0.8 })
+			awful.placement.centered(c)
+		else
+			awful.titlebar.hide(c)
 		end
 	end
 )

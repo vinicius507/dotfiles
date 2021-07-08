@@ -7,22 +7,26 @@ local client_keys = gears.table.join(
 	awful.key({ _G.superkey, _G.shiftkey }, 'h',
 		function (c)
 			utils.move_client(c, 'left')
-		end
+		end,
+		{ description = 'move client left', group = 'navigation' }
 	),
 	awful.key({ _G.superkey, _G.shiftkey }, 'j',
 		function (c)
 			utils.move_client(c, 'down')
-		end
+		end,
+		{ description = 'move client down', group = 'navigation' }
 	),
 	awful.key({ _G.superkey, _G.shiftkey }, 'k',
 		function (c)
 			utils.move_client(c, 'up')
-		end
+		end,
+		{ description = 'move client up', group = 'navigation' }
 	),
 	awful.key({ _G.superkey, _G.shiftkey }, 'l',
 		function (c)
 			utils.move_client(c, 'right')
-		end
+		end,
+		{ description = 'move client right', group = 'navigation' }
 	),
 
 	-- Single Tap: Center Client
@@ -36,7 +40,7 @@ local client_keys = gears.table.join(
 			utils.single_double_tap(
 				nil,
 				function ()
-					utils.float_and_resize(c, _G.screen_width * 0.6, _G.screen_height * 0.6)
+					utils.float_and_resize(c, _G.screen_width * 0.5, _G.screen_height * 0.5)
 				end
 			)
 		end

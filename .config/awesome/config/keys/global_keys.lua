@@ -2,6 +2,8 @@ local awful = require('awful')
 local gears = require('gears')
 local hotkeys_popup = require('awful.hotkeys_popup')
 require('awful.hotkeys_popup.keys')
+
+local bling = require('bling')
 local utils = require('utils')
 
 local user = require('config').user
@@ -33,6 +35,20 @@ local global_keys = gears.table.join(
 			awful.client.focus.bydirection('right')
 		end,
 		{ description = 'focus right', group = 'navigation' }
+	),
+	-- Mstab
+	awful.key({ _G.superkey }, '+',
+		function ()
+			bling.module.tabbed.iter(1)
+		end,
+		{ description = 'focus next tab', group = 'mstab layout' }
+	),
+
+	awful.key({ _G.superkey }, '-',
+		function ()
+			bling.module.tabbed.iter(-1)
+		end,
+		{ description = 'focus previous tab', group = 'mstab layout' }
 	),
 
 	-- Applications

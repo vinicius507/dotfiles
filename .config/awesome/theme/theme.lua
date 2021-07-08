@@ -137,4 +137,27 @@ theme.sidebar_title_font	= 'FiraCode Nerd Font Medium 10'
 theme.sidebar_profile_font	= 'FiraCode Nerd Font Medium 12'
 theme.sidebar_clock_font	= 'M+ 1m regular 36'
 
+
+theme.tabbar_ontop		= false
+theme.tabbar_radius		= _G.dpi(0)
+theme.tabbar_style		= 'default'
+theme.tabbar_font		= theme.font
+theme.tabbar_size		= 40
+theme.tabbar_position	= 'top'
+theme.tabbar_bg_normal	= theme.bg_normal
+theme.tabbar_fg_normal	= theme.fg_normal
+theme.tabbar_bg_focus	= theme.bg_focus
+theme.tabbar_fg_focus	= theme.fg_focus
+
+theme.mstab_bar_ontop = true
+theme.mstab_dont_resize_slaves = false
+theme.mstab_bar_padding = _G.dpi(-3)
+theme.mstab_border_radius = _G.dpi(0)
+theme.mstab_bar_height = 40
+theme.mstab_tabbar_position = 'top'
+theme.mstab_tabbar_style = 'default'
+
+
+
+
 return theme

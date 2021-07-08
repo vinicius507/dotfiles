@@ -10,11 +10,5 @@ naughty.connect_signal('request::display_error', function(message, startup)
 	})
 end)
 
--- Config
+-- Everything in the configuration is called by setup function
 require('config').setup()
-
--- Daemons
-require('daemons')
-
--- Layout
-require('layout')

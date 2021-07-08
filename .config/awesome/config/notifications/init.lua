@@ -35,6 +35,7 @@ notifications.init = function ()
 	-- Daemons
 	require('config.notifications.volume')
 	require('config.notifications.spotify')
+	require('config.notifications.layout')
 
 	-- Load Theme
 	require('theme.notifications')

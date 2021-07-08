@@ -8,7 +8,6 @@ local utils = require('utils')
 -- Widgets
 local profile		= require('widgets.sidebar.profile')
 local clock			= require('widgets.sidebar.clock')
--- local calendar		= require('widgets.sidebar.calendar')
 local hardware		= require('widgets.sidebar.hardware')
 local playerctl		= require('widgets.sidebar.playerctl')
 
@@ -45,7 +44,6 @@ sidebar:setup({
 		{
 			profile,
 			clock,
-			-- calendar,
 			playerctl,
 			hardware,
 			layout	= wibox.layout.fixed.vertical,

@@ -22,8 +22,15 @@ config.setup = function ()
 	-- Rules
 	require('config.rules')
 
+	-- Daemons
+	require('daemons')
+
+	-- Layout
+	require('layout')
+
 	-- Notifications
 	require('config.notifications').init()
+
 end
 
 return config

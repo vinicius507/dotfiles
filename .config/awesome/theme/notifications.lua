@@ -8,7 +8,11 @@ local utils = require('utils')
 --- For antialiasing
 beautiful.notification_bg = '#00000000'
 
-local default_icon = ''
+local default_icon = {
+	low			= '',
+	normal		= '',
+	critical	= '',
+}
 
 local app_config = {
 	discord		= { icon = 'ﭮ', title = true },
@@ -19,13 +23,14 @@ local app_config = {
 	player		= { icon = '', title = true },
 	volume		= { icon = '墳', title = true },
 	wpg			= { icon = '', title = false },
+	layout		= { icon = '', title = true },
 }
 
 
 local urgency_color = {
-	low = _G.x.color5,
-	normal = _G.x.color4,
-	critical = _G.x.color9,
+	low 		= _G.x.color5,
+	normal		= _G.x.color4,
+	critical	= _G.x.color9,
 }
 
 -- Template
@@ -40,7 +45,7 @@ naughty.connect_signal('request::display',
 			icon = app_config[n.app_name].icon
 			title_visible = app_config[n.app_name].title
 		else
-			icon = default_icon
+			icon = default_icon[n.urgency]
 			title_visible = true
 		end
 
