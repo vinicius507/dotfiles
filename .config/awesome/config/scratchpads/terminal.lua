@@ -5,7 +5,7 @@ local user = require('config').user
 
 local termpad = bling.module.scratchpad:new({
     command = user.floating_terminal .. ' --class termpad --title Scratchpad',
-    rule = { instance = 'termpad' },
+    rule = { class = 'termpad' },
     sticky = false,
     autoclose = false,
     floating = true,

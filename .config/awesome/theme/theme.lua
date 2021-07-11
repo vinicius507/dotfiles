@@ -157,7 +157,7 @@ theme.mstab_bar_height = 40
 theme.mstab_tabbar_position = 'top'
 theme.mstab_tabbar_style = 'default'
 
-
-
+theme.flash_focus_start_opacity = 0.6
+theme.flash_focus_step = 0.01
 
 return theme

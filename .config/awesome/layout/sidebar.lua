@@ -16,7 +16,7 @@ local sidebar = wibox({ visible = false, ontop = true, type = 'dock', screen = m
 sidebar.fg = beautiful.sidebar_fg or beautiful.wibar_fg or '#FFFFFF'
 sidebar.bg = '#00000000'
 sidebar.opacity = beautiful.sidebar_opacity or 1
-sidebar.height = screen.primary.geometry.height * 0.7
+sidebar.height = screen.primary.geometry.height * 0.6
 sidebar.width = beautiful.sidebar_width or _G.dpi(300)
 local radius = beautiful.sidebar_border_radius or _G.dpi(3)
 

@@ -15,40 +15,44 @@ local global_keys = gears.table.join(
 	awful.key({ _G.superkey }, 'h',
 		function ()
 			awful.client.focus.bydirection('left')
+			bling.module.flash_focus.flashfocus(client.focus)
 		end,
 		{ description = 'focus left', group = 'navigation' }
 	),
 	awful.key({ _G.superkey }, 'j',
 		function ()
 			awful.client.focus.bydirection('down')
+			bling.module.flash_focus.flashfocus(client.focus)
 		end,
 		{ description = 'focus down', group = 'navigation' }
 	),
 	awful.key({ _G.superkey }, 'k',
 		function ()
 			awful.client.focus.bydirection('up')
+			bling.module.flash_focus.flashfocus(client.focus)
 		end,
 		{ description = 'focus up', group = 'navigation' }
 	),
 	awful.key({ _G.superkey }, 'l',
 		function ()
 			awful.client.focus.bydirection('right')
+			bling.module.flash_focus.flashfocus(client.focus)
 		end,
 		{ description = 'focus right', group = 'navigation' }
 	),
 	-- Mstab
-	awful.key({ _G.superkey }, '+',
+	awful.key({ _G.superkey }, '=',
 		function ()
-			bling.module.tabbed.iter(1)
+			awful.client.focus.byidx(1)
 		end,
-		{ description = 'focus next tab', group = 'mstab layout' }
+		{ description = 'focus next client', group = 'navigation' }
 	),
 
 	awful.key({ _G.superkey }, '-',
 		function ()
-			bling.module.tabbed.iter(-1)
+			awful.client.focus.byidx(-1)
 		end,
-		{ description = 'focus previous tab', group = 'mstab layout' }
+		{ description = 'focus previous client', group = 'navigation' }
 	),
 
 	-- Applications

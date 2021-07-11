@@ -1,4 +1,5 @@
 local awful = require('awful')
+local beautiful = require('beautiful')
 local ruled = require('ruled')
 
 ruled.client.connect_signal('request::rules',
@@ -8,10 +9,10 @@ ruled.client.connect_signal('request::rules',
 			id         = 'global',
 			rule       = {},
 			properties = {
-				focus		= awful.client.focus.filter,
-				raise		= true,
-				screen		= awful.screen.preferred,
-				placement	= awful.placement.no_overlap+awful.placement.no_offscreen
+				focus				= awful.client.focus.filter,
+				raise				= true,
+				screen				= awful.screen.preferred,
+				placement			= awful.placement.no_overlap+awful.placement.no_offscreen
 			},
 		})
 
@@ -27,7 +28,6 @@ ruled.client.connect_signal('request::rules',
 					'Xfce4-power-manager-settings',
 					'Wpg',
 					'zoom',
-					'mpv',
 				},
 				name		= {
 					'Event Tester', -- Xev
@@ -41,10 +41,18 @@ ruled.client.connect_signal('request::rules',
 			properties		= {
 				floating			= true,
 				titlebars_enabled	= true,
-				width				= _G.screen_width * 0.8,
-				height				= _G.screen_height * 0.8,
 				placement			= awful.placement.centered
-			}
+			},
+			callback = function (c)
+				c:connect_signal('property::floating', function()
+					if c.floating then
+						awful.titlebar.show(c)
+						awful.placement.centered(c)
+					else
+						awful.titlebar.hide(c)
+					end
+				end)
+			end,
 		})
 
 		-- Sticky Clients.
@@ -58,45 +66,56 @@ ruled.client.connect_signal('request::rules',
 				},
 				role		= {},
 			},
-			properties	= { ontop = true, floating = true, sticky = true }
+			properties	= {
+				ontop				= true,
+				floating			= true,
+				sticky				= true,
+				titlebars_enabled	= false,
+			}
 		})
 
-		-- Add titlebars to normal clients and dialogs
-		-- ruled.client.append_rule({
-		-- 	id         = 'titlebars',
-		-- 	rule_any   = { type = { 'normal', 'dialog' } },
-		-- 	properties = { titlebars_enabled = true }
-		-- })
+		-- Mpv
+		ruled.client.append_rule({
+			id			= 'mpv',
+			rule		= { class = 'mpv' },
+			properties	= {
+				titlebars_enabled		= false,
+				floating				= true,
+			},
+		})
 
 		-- Scratchpads
 		ruled.client.append_rule({
 			id			= 'termpad',
-			rule_any	= {
-				instance = {
-					'termpad',
-				},
-			},
+			rule		= { class = 'termpad' },
 			properties	= {
 				floating				= true,
-				placement				= awful.placement.center_horizontal,
-				maximized_horizontal	= true,
-				hidden					= true,
+				placement				= function (c)
+					awful.placement.top(c, {
+						honor_workarea = true,
+						margins = {
+							top = beautiful.useless_gap * 2,
+							bottom = beautiful.useless_gap * 2,
+							left = beautiful.useless_gap * 4,
+							right = beautiful.useless_gap * 4
+						},
+					})
+				end,
+				height					= _G.screen_height / 2,
+				width					= _G.screen_width - (beautiful.useless_gap * 4),
 			},
 		})
 
 		ruled.client.append_rule({
 			id			= 'ncmpcpp',
-			rule_any	= {
-				instance = {
-					'ncmpcpp',
-				},
-			},
+			rule		= { class = 'ncmpcpp' },
 			properties	= {
 				titlebars_enabled		= false,
 				floating				= true,
 				placement				= awful.placement.centered,
 				maximized_horizontal	= true,
-				hidden					= true,
+				width					= _G.screen_width * 0.4,
+				height					= _G.screen_height * 0.4,
 			},
 		})
 	end
@@ -156,19 +175,6 @@ client.connect_signal('property::urgent',
 	function (c)
 		if c.urgent then
 			c:jump_to()
-		end
-	end
-)
-
--- Toggle titlebar on windows state
-client.connect_signal('property::floating',
-	function (c)
-		if c.floating and c.class ~= 'ncmpcpp' then
-			awful.titlebar.show(c)
-			c:geometry({ width = _G.screen_width * 0.8, height = _G.screen_height * 0.8 })
-			awful.placement.centered(c)
-		else
-			awful.titlebar.hide(c)
 		end
 	end
 )

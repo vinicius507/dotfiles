@@ -31,7 +31,6 @@ local set_panel = function (s)
 		layout	= wibox.layout.fixed.horizontal,
 	})
 
-
 	s.end_widgets = wibox.widget({
 		s.systray,
 		layout	= wibox.layout.fixed.horizontal,
