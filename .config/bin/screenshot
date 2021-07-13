@@ -11,13 +11,15 @@ fi
 case $OPTION in
 	section)
 		maim -s $IMG &
+		PID_MAIM=$!
 		;;
 	full)
 		maim $IMG &
+		PID_MAIM=$!
 		;;
 esac
 
-sleep 0.2
+wait $PID_MAIM
 if [[ -f $IMG ]]; then
 	cat $IMG | xclip -selection clipboard -t image/png
 	echo "require('naughty').notification({ title = 'Screenshot', message = 'Screenshot taken.', app_name = 'screenshot', })" | awesome-client

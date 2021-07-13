@@ -20,13 +20,16 @@ ruled.client.connect_signal('request::rules',
 		ruled.client.append_rule({
 			id       = 'floating',
 			rule_any = {
-				instance	= {},
+				instance	= {
+					'Devtools',
+				},
 				class		= {
+					'Devtools',
 					'Lxappearance',
 					'Pavucontrol',
 					'Pcmanfm',
-					'Xfce4-power-manager-settings',
 					'Wpg',
+					'Xfce4-power-manager-settings',
 					'zoom',
 				},
 				name		= {
